@@ -1,0 +1,17 @@
+extends layout
+
+block content
+	h1= title
+	h2= "Test title"
+	p This technology is especially ridiculous.
+	ul
+		li.first
+			a(href="/test") 1rst item
+		li 
+			| 2nd <a href="/test">item</a>
+		li.last	
+			| 3rd item
+
+	p Go to count of 
+		a(href="/users") users
+		|  test more content
