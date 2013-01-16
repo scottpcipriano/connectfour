@@ -1,5 +1,5 @@
 {
-  "name": "test_app_1",
+  "name": "connectfour",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -9,5 +9,9 @@
     "express": "3.0.4",
     "jade": "*",
     "stylus": "*"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
   }
 }
