@@ -1,7 +1,11 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var db = mongoose.connect('mongodb://localhost/testdb');
+// dev connection
+//var db = mongoose.connect('mongodb://localhost/testdb');
+
+// live db config
+var db = mongoose.connect('mongodb://connectfour:hipster@linus.mongohq.com:10060/app11007030');
 
 var User = new Schema({
 	first_name: String,
