@@ -1,6 +1,4 @@
-
 .DS_Store
-
 mongo/data/*
-
 /node_modules
+/config.json
