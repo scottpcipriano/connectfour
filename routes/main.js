@@ -44,7 +44,7 @@ module.exports = {
 		});
 
 		app.get('/eastereggz', function(req, res) {
-			res.render('index', { title: 'Easter Eggz, yay!' });
+			res.render('eastereggz', { title: 'Easter Eggz, yay!' });
 		});
 
 
