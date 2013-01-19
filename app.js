@@ -3,6 +3,7 @@
  */
 var rootDir = process.cwd(),
 	express = require('express'),
+	exphbs  = require('express3-handlebars'),
 	app = module.exports = express(),
 	config = require(rootDir + '/config'),
 	port = config.get('PORT'),
@@ -10,12 +11,20 @@ var rootDir = process.cwd(),
 	// nodeEnv = config.get('ENVIRONMENT'),
 	mainRoutes = require(rootDir + '/routes/main'),
 	http = require('http'),
-	path = require('path');
+	path = require('path'),
+    hbs;
+
+// Create `ExpressHandlebars` instance with a default layout.
+hbs = exphbs.create({
+    defaultLayout: 'main'
+});
+
 
 app.configure(function() {
+	app.engine('handlebars', hbs.engine);
 	app.set('port', process.env.PORT || port);
 	app.set('views', __dirname + '/views');
-	app.set('view engine', 'jade');
+	app.set('view engine', 'handlebars');
 	app.use(express.favicon());
 	app.use(express.logger('dev'));
 	app.use(express.bodyParser());

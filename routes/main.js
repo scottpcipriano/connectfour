@@ -4,10 +4,6 @@ var rootDir = process.cwd(),
 	mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-// dev connection
-//var db = mongoose.connect('mongodb://localhost/testdb');
-
-// live db config
 var db = mongoose.connect(mongoUrl);
 var User = new Schema({
 	first_name: String,
@@ -46,20 +42,6 @@ module.exports = {
 		app.get('/eastereggz', function(req, res) {
 			res.render('eastereggz', { title: 'Easter Eggz, yay!' });
 		});
-
-
-
-
-		// app.use(function(req, res, next) {
-
-		// 	// res.render(rootDir + '/client/views/app.jade', {
-		// 	// 	title: '404 - Page Not Found'
-		// 	// });
-		// 	// if(req.path === '/404') {
-		// 	// }
-		// });
-
-
 
 	}
 

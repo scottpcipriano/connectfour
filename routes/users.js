@@ -1,21 +1,3 @@
-var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
-
-// dev connection
-//var db = mongoose.connect('mongodb://localhost/testdb');
-
-// live db config
-var db = mongoose.connect('mongodb://connectfour:hipster@linus.mongohq.com:10060/app11007030');
-
-var User = new Schema({
-	first_name: String,
-	last_name: String
-});
-
-var UserModel = mongoose.model('User', User);
-
-
-
 exports.list = function(req, res) {
 	
 	// sets up record to be inserted
