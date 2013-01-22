@@ -1,4 +1,5 @@
 .DS_Store
+*.sublime-build
 *.sublime-project
 *.sublime-workspace
 mongo/data/*

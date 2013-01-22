@@ -1,27 +1,26 @@
-/**
- * Module dependencies.
- */
-var rootDir = process.cwd(),
-	express = require('express'),
+var express = require('express'),
 	exphbs  = require('express3-handlebars'),
 	app = module.exports = express(),
-	config = require(rootDir + '/config'),
+	hbs = exphbs.create({ /* config */ }),
+	config = require('./config'),
 	port = config.get('PORT'),
-	// version = config.get('VERSION'),
-	// nodeEnv = config.get('ENVIRONMENT'),
-	mainRoutes = require(rootDir + '/routes/main'),
+	mongoUrl = config.get('MONGO_URL'),
+	mongoose = require('mongoose'),
+	model = require('./models/model')(app,mongoose),
+	mainRoutes = require('./routes/main')(app,model),
 	http = require('http'),
-	path = require('path'),
-    hbs;
+	path = require('path');
 
-// Create `ExpressHandlebars` instance with a default layout.
-hbs = exphbs.create({
-    defaultLayout: 'main'
+mongoose.connect(mongoUrl, function(err) {
+	if (!err) {
+		console.log('Connected to mongodb');
+	} else {
+		throw err;
+	}
 });
 
-
 app.configure(function() {
-	app.engine('handlebars', hbs.engine);
+	app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 	app.set('port', process.env.PORT || port);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'handlebars');
@@ -38,8 +37,10 @@ app.configure('development', function() {
 	app.use(express.errorHandler());
 });
 
-mainRoutes.loadRoutes(app);
-
 http.createServer(app).listen(app.get('port'), function() {
 	console.log('Express server listening on port: ' + app.get('port'));
 });
+
+
+
+

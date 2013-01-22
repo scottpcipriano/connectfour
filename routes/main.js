@@ -1,48 +1,25 @@
-var rootDir = process.cwd(),
-	config = require(rootDir + '/config'),
-	mongoUrl = config.get('MONGO_URL'),
-	mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+module.exports = function(app,model) {
 
-var db = mongoose.connect(mongoUrl);
-var User = new Schema({
-	first_name: String,
-	last_name: String
-});
-var UserModel = mongoose.model('User', User);
+	app.get('/', function(req, res) {
+		res.render('index', { title: 'Connect Four' });
+	});
 
-module.exports = {
 
-	loadRoutes: function(app) {
+	var users = require('../controllers/users');
+	app.get('/users', function(req, res) {
 
-		app.get('/', function(req, res) {
-			res.render('index', { title: 'Connect Four' });
-		});
+		users.create(function() {users.count( function(length) {
+			res.render('users', { title: 'Users List Page', userTotal: length   });
+		}
+		)});
+	});
 
-		app.get('/users', function(req, res) {
+	app.get('/game/:id'	, function(req,res) {
+		res.send('You are playing game:' + req.params.id);
+	});
 
-			// sets up record to be inserted
-			var record = new UserModel();
-			record.first_name = 'FName';
-			record.last_name = 'LName';
-
-			// inserts one record
-			record.save(function (err) {});
-
-			// sends server response of report count
-			UserModel.find({}, function(err, users) {
-				var length = users.length;
-
-				res.render('users', { title: 'Users list page', userTotal: users.length, firstUser: users[0].last_name });
-
-			});
-
-		});
-
-		app.get('/eastereggz', function(req, res) {
-			res.render('eastereggz', { title: 'Easter Eggz, yay!' });
-		});
-
-	}
+	app.get('/eastereggz', function(req, res) {
+		res.render('eastereggz', { title: 'Easter Eggz, yay!' });
+	});
 
 };
