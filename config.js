@@ -3,14 +3,13 @@
  *
  */
 
-var rootDir = process.cwd(),
-	nconf = require('nconf'),
+var nconf = require('nconf'),
 	fs = require('fs'),
-	nodeEnv = require(rootDir + '/app').get('env'),
-	json = JSON.parse(fs.readFileSync(rootDir + '/package.json', 'utf8'));
+	nodeEnv = require('./app').get('env'),
+	json = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
 nconf.argv().env().file({
-	file: process.env.configFile || rootDir + '/config.json'
+	file: process.env.configFile || './config.json'
 });
 
 nconf.set('VERSION', json.version);

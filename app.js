@@ -25,7 +25,8 @@ app.configure(function() {
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'handlebars');
 	app.use(express.favicon());
-	app.use(express.logger('dev'));
+	// using short format instead of dev because it doesn't log colors
+	app.use(express.logger('short'));
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(app.router);
@@ -40,7 +41,3 @@ app.configure('development', function() {
 http.createServer(app).listen(app.get('port'), function() {
 	console.log('Express server listening on port: ' + app.get('port'));
 });
-
-
-
-

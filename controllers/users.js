@@ -16,7 +16,6 @@ exports.count = function (callback)  {
 
   User.find({}, function(err, users) {
       var length = users.length;      
-      console.log("counting: " + users.length);
       callback(length);
   });
 
