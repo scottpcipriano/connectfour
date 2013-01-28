@@ -1,5 +1,6 @@
 var express = require('express'),
 	exphbs  = require('express3-handlebars'),
+	socketLayer = require('./socket-layer'),
 	app = module.exports = express(),
 	hbs = exphbs.create({ /* config */ }),
 	config = require('./config'),
@@ -9,7 +10,8 @@ var express = require('express'),
 	model = require('./models/model')(app,mongoose),
 	mainRoutes = require('./routes/main')(app,model),
 	http = require('http'),
-	path = require('path');
+	path = require('path'),
+	server;
 
 mongoose.connect(mongoUrl, function(err) {
 	if (!err) {
@@ -38,6 +40,7 @@ app.configure('development', function() {
 	app.use(express.errorHandler());
 });
 
-http.createServer(app).listen(app.get('port'), function() {
+server = http.createServer(app).listen(app.get('port'), function() {
 	console.log('Express server listening on port: ' + app.get('port'));
+	socketLayer(app, server);
 });
