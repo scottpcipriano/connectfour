@@ -1,5 +1,12 @@
 <h1>{{title}}</h1>
+<p><a href="/users">Active users</a></p>
 
-<p>This technology is brought to you by team hipster.</p>
+<h2>Currently active games: {{games.length}}</h2>
 
-<p>Mongo test connection <a href="/users">users</a></p>
+<h2>List of active games </h2>
+
+<ul>
+	{{#each games}}
+  		<li><a href="/game/{{_id}}">Game: {{this}}</a></li>
+	{{/each}}
+</ul>

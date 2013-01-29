@@ -4,8 +4,7 @@ var mongoose = require('mongoose'),
 exports.create = function (callback) {
   
   var user = new User()
-  user.first_name = 'FName';
-  user.last_name = 'LName';
+  user.name = 'NAME';
 
   // inserts one record
   user.save(function (err) {callback()});
