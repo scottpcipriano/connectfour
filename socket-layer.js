@@ -6,23 +6,24 @@ module.exports = function(app, server) {
 
 		console.log('Socket connection...');
 
-		// BACK END EMITTERS
+		// ---------------------------------------------> GAME SETUP
+
 		socket.emit('enterGame', {
 			hello: 'world'
 		});
 
-		// BACK END LISTENERS
+		// ---------------------------------------------> CHAT
 
 		socket.on('sendChatMessage', function(message) {
 			// console.log(message);
 			socket.broadcast.emit('sendChatMessageToAll', message);
 		});
 
-
-
+		// ---------------------------------------------> GAME PLAY
 
 		socket.on('playDot', function(data) {
-			console.log(data);
+			// console.log(data);
+			socket.broadcast.emit('playDotAndRotateUser', { /* to come */ });
 		});
 
 	});

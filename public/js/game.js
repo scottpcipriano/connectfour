@@ -6,19 +6,19 @@ $(function($) {
 
 	window.socket = socket;
 
-	// FRONT END LISTENERS
-	socket.on('enterGame', function(data) {
+	// ---------------------------------------------> GAME SETUP
 
+	socket.on('enterGame', function(data) {
 		// set up all the game data here
 		// console.log(data, 'game entered');
-
 	});
+
+	// ---------------------------------------------> CHAT
 
 	socket.on('sendChatMessageToAll', function(message) {
 		$chatLog.append('<p><span class="playerTwo">The other player:</span> ' + message + '</p>');
 	});
 
-	// FRONT END EMITTERS
 	$chatInput.on('keyup', function(event) {
 		var code = (event.keyCode ? event.keyCode : event.which),
 			inputValue;
@@ -32,8 +32,14 @@ $(function($) {
 		}
 	});
 
+	// ---------------------------------------------> GAME PLAY
+
 	socket.emit('playDot', {
 		my: 'data'
+	});
+
+	socket.on('playDotAndRotateUser', function(data) {
+		// show that the other player has played, and then change the turn
 	});
 
 });
