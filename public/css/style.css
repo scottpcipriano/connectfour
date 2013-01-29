@@ -11,3 +11,27 @@ li {
 h2 {
   color: #800080;
 }
+.playerOne {
+  color: #f00;
+}
+.playerTwo {
+  color: #008000;
+}
+#chatInput {
+  margin: 0 0 20px;
+  border: 1px solid #ccc;
+  width: 300px;
+  font-size: 15px;
+  box-shadow: 3px 3px 8px #ddd inset, 3px 3px 8px #888;
+}
+#chatLog {
+  margin: 0 0 20px;
+  padding: 25px;
+  height: 200px;
+  border: 1px solid #ccc;
+  box-shadow: 3px 3px 8px #888;
+  overflow: auto;
+}
+#chatLog p {
+  margin: 0 0 5px;
+}
