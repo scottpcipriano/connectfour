@@ -1,8 +1,10 @@
 $(function($) {
 
-	var socket = io.connect('http://localhost'),
+	var socket,
 		$chatInput = $('#chatInput'),
 		$chatLog = $('#chatLog');
+
+	if(__DOMAIN__) { socket = io.connect('http://' + __DOMAIN__); }
 
 	window.socket = socket;
 

@@ -1,3 +1,7 @@
+var rootDir = process.cwd(),
+	config = require(rootDir + '/config'),
+	domain = config.get('DOMAIN');
+
 module.exports = function(app,model,passport) {
 
 	var users = require('../controllers/users');
@@ -8,7 +12,8 @@ module.exports = function(app,model,passport) {
 	app.get('/', function(req, res) {
 		games.list(function(games) {
 			res.render('index', {
-				user: req.user, 
+				domain: domain,
+				user: req.user,
 				className: 'home',
 				title: 'Connect Four',
 				games: games
@@ -16,9 +21,10 @@ module.exports = function(app,model,passport) {
 		});
 	});
 
-	app.get('/game/:id'	, ensureAuthenticated, function(req,res) { 
+	app.get('/game/:id'	, ensureAuthenticated, function(req,res) {
 		games.get(req.params.id, function(game) {
 			res.render('game', {
+				domain: domain,
 				user: req.user,
 				className: 'game',
 				isGame: true,
@@ -31,6 +37,7 @@ module.exports = function(app,model,passport) {
 	app.get('/users', ensureAuthenticated, function(req, res) {
 		users.list(function(users) {
 			res.render('users', {
+				domain: domain,
 				user: req.user,
 				className: 'users',
 				title: 'Users List Page',
@@ -42,6 +49,7 @@ module.exports = function(app,model,passport) {
 
 	app.get('/eastereggz', function(req, res) {
 		res.render('eastereggz', {
+			domain: domain,
 			className: 'eggz',
 			title: 'Easter Eggz, yay!'
 		});	});
