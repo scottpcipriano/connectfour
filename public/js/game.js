@@ -4,7 +4,12 @@ $(function($) {
 		$chatInput = $('#chatInput'),
 		$chatLog = $('#chatLog');
 
-	if(__DOMAIN__) { socket = io.connect('http://' + __DOMAIN__); }
+	if(__DOMAIN__) {
+		socket = io.connect('http://' + __DOMAIN__);
+	} else {
+		// default
+		socket = io.connect('http://localhost');
+	}
 
 	window.socket = socket;
 
