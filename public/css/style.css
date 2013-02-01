@@ -16,6 +16,7 @@ h2 {
 }
 #content {
   width: 100%;
+  min-width: 1060px;
 }
 .panel {
   float: left;
@@ -26,35 +27,59 @@ h2 {
 }
 #gameGrid {
   position: relative;
-  float: left;
-  width: 100%;
-  margin-bottom: 1em;
-  padding: 0;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  background-color: #ff0;
+  width: 704px;
+  height: 604px;
+  margin: 0 0 1em 0;
+  padding: 100px 0 0 0;
+  border: 1px solid #000;
 }
 #gameGrid .board {
   position: absolute;
-  top: 0;
+  top: 100px;
   left: 0;
   z-index: 30;
-  max-width: 100%;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  width: 700px;
+  height: 600px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 3px solid #f7d805;
+  background-color: #f7e305;
+  opacity: 0.7;
 }
 #gameGrid .column {
+  position: relative;
   float: left;
-  margin: 0;
-  width: 14.285714285714286%;
+  width: 100px;
+  height: 100%;
   text-align: center;
 }
 #gameGrid .dot {
-  position: relative;
-  z-index: 20;
-  max-width: 90%;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: -100px;
+  -moz-transition: ;
+  -webkit-transition: ;
+  -o-transition: ;
+  transition: ;
+}
+#gameGrid .dot.spot-0 {
+  margin-top: 500px;
+}
+#gameGrid .dot.spot-1 {
+  margin-top: 400px;
+}
+#gameGrid .dot.spot-2 {
+  margin-top: 300px;
+}
+#gameGrid .dot.spot-3 {
+  margin-top: 200px;
+}
+#gameGrid .dot.spot-5 {
+  margin-top: 0;
 }
 .playerOne {
   color: #f00;

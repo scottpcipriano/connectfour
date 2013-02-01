@@ -6,6 +6,14 @@ border-radius(n)
   border-radius n
 
 
+transition(@range, @time, @ease) {
+    -moz-transition: @range @time @ease;
+    -webkit-transition: @range @time @ease;
+    -o-transition: @range @time @ease;
+    transition: @range @time @ease;
+}
+	
+
 body
 	font 14px "Lucida Grande", Helvetica, Arial, sans-serif
   
@@ -24,6 +32,7 @@ h2
 
 #content
 	width 100%
+	min-width 1060px
 
 .panel
 	float left
@@ -34,28 +43,55 @@ h2
 
 #gameGrid
 	position relative
-	float left
-	width 100%
-	margin-bottom 1em
-	padding 0
-	border-radius(5px)
-	background-color yellow
+	//float left
+	//width 100%
+	width 704px
+	height 604px
+	margin 0 0 1em 0
+	padding 100px 0 0 0
+	border 1px solid black
+	
+
 	.board
+		position absolute
+		top 100px
+		left 0
+		z-index 30
+		width 700px
+		height 600px
+		border-radius(10px)
+		border 3px solid #f7d805
+		background-color #f7e305
+		opacity 0.7
+		
+	.column
+		position relative
+		float left
+		width 100px
+		height 100%
+		text-align center
+	.dot
+		width 100px
+		height 100px
 		position absolute
 		top 0
 		left 0
-		z-index 30
-		max-width 100%
-		border-radius(5px)
-	.column
-		float left
-		margin 0
-		width (100/$num-cols)%
-		text-align center
-	.dot
-		position relative
-		z-index 20
-		max-width 90%
+		margin-top -100px
+		transition(margin, 5s, ease-in-out)
+	.dot.spot-0
+		margin-top 500px
+	.dot.spot-1
+		margin-top 400px
+	.dot.spot-2
+		margin-top 300px
+	.dot.spot-3
+		margin-top 200px
+	.dot.spot-4
+		margin-top 
+	.dot.spot-5
+		margin-top 0
+
+		
 
 
 .playerOne
