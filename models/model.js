@@ -18,7 +18,9 @@ module.exports = function(app, mongoose) {
 	});
 
 	var UserSchema = new mongoose.Schema({
-		name: String
+		external_id: String,
+		name: String,
+		email: String
 	});
 
 	var Board = mongoose.model('Board', BoardSchema);

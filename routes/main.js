@@ -28,15 +28,13 @@ module.exports = function(app,model,passport) {
 	});
 
 
-	app.get('/users', function(req, res) {
-		users.create(function() {
-			users.count(function(length) {
-				res.render('users', {
-					user: req.user,
-					className: 'users',
-					title: 'Users List Page',
-					userTotal: length
-				});
+	app.get('/users', ensureAuthenticated, function(req, res) {
+		users.list(function(users) {
+			res.render('users', {
+				user: req.user,
+				className: 'users',
+				title: 'Users List Page',
+				users: users
 			});
 		});
 	});
@@ -72,7 +70,7 @@ module.exports = function(app,model,passport) {
 	// function should probably be moved as it is middleware
 	function ensureAuthenticated(req, res, next) {
 	  if (req.isAuthenticated()) { return next(); }
-	  res.redirect('/login')
+	  res.redirect('/')
 	}
 
 
