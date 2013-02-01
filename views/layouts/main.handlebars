@@ -10,6 +10,21 @@
 		<header>{{header}}</header>
 		<div id="content" data-role="content">
 
+
+	{{#if user}}
+			<p>
+			<a href="/">Home</a> | 	
+			<a href="/logout">Log Out</a>
+			</p>
+			{{else}}			
+			<p>
+			<a href="/">Home</a> | 
+			<a href="/login">Log In</a>
+			</p>
+
+
+		{{/if}}
+
     		{{{body}}}
 
     	</div>

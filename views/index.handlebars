@@ -1,4 +1,12 @@
 <h1>{{title}}</h1>
+
+{{#if user}}
+	<h2>Hello, {{user.displayName}}.</h2>
+	<p>ID: {{user.identifier}}</p>
+	<p>Name: {{user.displayName}}</p>
+	<p>Email: {{user.emails.[0].value}}</p>
+	
+
 <p><a href="/users">Active users</a></p>
 
 <h2>Currently active games: {{games.length}}</h2>
@@ -9,4 +17,10 @@
 	{{#each games}}
   		<li><a href="/game/{{_id}}">Game: {{this}}</a></li>
 	{{/each}}
-</ul>
+</ul>	
+	
+	
+{{else}}
+	<h2>Welcome! Please <a href="/auth/google">login with Google</a> to play a game.</h2>
+{{/if}}
+

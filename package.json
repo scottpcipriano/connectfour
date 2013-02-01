@@ -11,7 +11,9 @@
     "stylus": "*",
     "mongoose": "~3.5.4",
     "nconf": "~0.6.7",
-    "socket.io": "~0.9.13"
+    "socket.io": "~0.9.13",
+    "passport": ">= 0.0.0",
+    "passport-google": ">= 0.0.0"
   },
   "engines": {
     "node": "0.8.x",
