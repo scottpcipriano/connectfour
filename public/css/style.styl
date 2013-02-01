@@ -1,5 +1,12 @@
+$num-cols = 7
+
+border-radius(n)
+  -webkit-border-radius n
+  -moz-border-radius n
+  border-radius n
+
+
 body
-	padding 50px
 	font 14px "Lucida Grande", Helvetica, Arial, sans-serif
   
 a
@@ -11,6 +18,46 @@ li
 h2
 	color purple
 
+#page
+	width 95%
+	margin 0 auto
+
+#content
+	width 100%
+
+.panel
+	float left
+
+#gamePanel
+	width 65%
+	margin-right 5%
+
+#gameGrid
+	position relative
+	float left
+	width 100%
+	margin-bottom 1em
+	padding 0
+	border-radius(5px)
+	background-color yellow
+	.board
+		position absolute
+		top 0
+		left 0
+		z-index 30
+		max-width 100%
+		border-radius(5px)
+	.column
+		float left
+		margin 0
+		width (100/$num-cols)%
+		text-align center
+	.dot
+		position relative
+		z-index 20
+		max-width 90%
+
+
 .playerOne
 	color red
 
@@ -18,13 +65,15 @@ h2
 	color green
 
 
+#chatPanel
+	width 30%
 
 #chatInput
 	margin 0 0 20px
 	border 1px solid #ccc
-	width 300px
-	font-size 15px
+	width 100%
 	box-shadow 3px 3px 8px #ddd inset, 3px 3px 8px #888
+
 #chatLog
 	margin 0 0 20px
 	padding 25px

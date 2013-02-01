@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 a {
@@ -11,17 +10,65 @@ li {
 h2 {
   color: #800080;
 }
+#page {
+  width: 95%;
+  margin: 0 auto;
+}
+#content {
+  width: 100%;
+}
+.panel {
+  float: left;
+}
+#gamePanel {
+  width: 65%;
+  margin-right: 5%;
+}
+#gameGrid {
+  position: relative;
+  float: left;
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #ff0;
+}
+#gameGrid .board {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  max-width: 100%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+#gameGrid .column {
+  float: left;
+  margin: 0;
+  width: 14.285714285714286%;
+  text-align: center;
+}
+#gameGrid .dot {
+  position: relative;
+  z-index: 20;
+  max-width: 90%;
+}
 .playerOne {
   color: #f00;
 }
 .playerTwo {
   color: #008000;
 }
+#chatPanel {
+  width: 30%;
+}
 #chatInput {
   margin: 0 0 20px;
   border: 1px solid #ccc;
-  width: 300px;
-  font-size: 15px;
+  width: 100%;
   box-shadow: 3px 3px 8px #ddd inset, 3px 3px 8px #888;
 }
 #chatLog {
