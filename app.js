@@ -9,6 +9,7 @@ var express = require('express'),
 	config = require('./config'),
 	port = config.get('PORT'),
 	domain = config.get('DOMAIN'),
+	authReturnHost = config.get('AUTH_RETURN_HOST') || domain + ":" + port,
 	mongoUrl = config.get('MONGO_URL'),
 	mongoose = require('mongoose'),
 	model = require('./models/model')(app,mongoose),
@@ -41,8 +42,8 @@ passport.deserializeUser(function(obj, done) {
 });
 
 passport.use(new GoogleStrategy({
-    returnURL: 'http://' + domain + ":" + port + '/auth/google/return',
-    realm: 'http://' + domain + ":" + port + '/'
+    returnURL: 'http://' + authReturnHost + '/auth/google/return',
+    realm: 'http://' + authReturnHost + '/'
   },
   function(identifier, profile, done) {
     process.nextTick(function () {
