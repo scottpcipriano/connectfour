@@ -5,3 +5,4 @@
 mongo/data/*
 /node_modules
 /config.json
+/NOTES.js
