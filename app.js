@@ -11,6 +11,7 @@ var express = require('express'),
 	mongoUrl = config.get('MONGO_URL'),
 	mongoose = require('mongoose'),
 	model = require('./models/model')(app,mongoose),
+	User = mongoose.model('User'),
 	http = require('http'),
 	path = require('path'),
 	server;
@@ -38,24 +39,31 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 
-// Use the GoogleStrategy within Passport.
-//   Strategies in passport require a `validate` function, which accept
-//   credentials (in this case, an OpenID identifier and profile), and invoke a
-//   callback with a user object.
 passport.use(new GoogleStrategy({
     returnURL: 'http://localhost:3000/auth/google/return',
     realm: 'http://localhost:3000/'
   },
   function(identifier, profile, done) {
-    // asynchronous verification, for effect...
     process.nextTick(function () {
-      
-      // To keep the example simple, the user's Google profile is returned to
-      // represent the logged-in user.  In a typical application, you would want
-      // to associate the Google account with a user record in your database,
-      // and return that user instead.
-      profile.identifier = identifier;
-      return done(null, profile);
+      var query = User.findOne({ 'externalid': identifier });
+      query.exec(function (err, oldUser) {
+        console.log(oldUser);
+        if(oldUser) {
+          console.log('User: ' + oldUser.name + ' found and logged in!');
+          done(null, oldUser);
+        } else {
+          var newUser = new User();
+          newUser.externalid = identifier;
+          newUser.name = profile.displayName;
+          newUser.email = profile.emails[0].value;
+
+          newUser.save(function(err) {
+            if(err) {throw err;}
+            console.log('New user: ' + newUser.name + ' created and logged in!');
+            done(null, newUser);
+          }); 
+        }
+      });
     });
   }
 ));

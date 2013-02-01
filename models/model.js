@@ -18,7 +18,7 @@ module.exports = function(app, mongoose) {
 	});
 
 	var UserSchema = new mongoose.Schema({
-		external_id: String,
+		externalid: String,
 		name: String,
 		email: String
 	});
