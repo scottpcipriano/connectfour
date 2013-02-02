@@ -72,12 +72,13 @@ h2
 		position relative
 		float left
 		width $cellSize px
-		height 100%
+		height $cellSize*$numRows px
 		text-align center
 
 	.slot
-		width $cellSize - $cellPadding px
-		height $cellSize - $cellPadding px
+		float left
+		width $cellSize - $cellPadding*2 px
+		height $cellSize - $cellPadding*2 px
 		background-color white
 		border-radius(50px)
 		//box-shadow(inset 1px 2px 5px #000)
