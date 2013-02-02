@@ -54,7 +54,8 @@ h2
 	position relative
 	width $cellSize*$numCols px
 	height $cellSize*$numRows px
-	margin 110px 0 1em 0
+	margin-top $cellSize + ($cellPadding*2) px
+	margin-bottom 1em
 	border-radius(10px)
 	//border 3px solid #f7d805
 
@@ -94,11 +95,10 @@ h2
 		position absolute
 		top 0
 		left 0
-		margin-top -100px
+		margin-top -($cellSize + ($cellPadding*2)) px
 		// http://matthewlein.com/ceaser/ <-- easing tool
 		transition(margin, .35s, cubic-bezier(0.950,  0.050, 0.795, 0.035))
-		margin-top -116px
-		transition(margin, 1s, ease-in-out)
+		//transition(margin, 1s, ease-in-out)
 
 	.dot.spot-0
 		margin-top $cellSize*5 px

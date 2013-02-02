@@ -6,12 +6,12 @@ h2{color:#800080}
 #content{width:100%;min-width:1060px}
 .panel{float:left}
 #gamePanel{width:65%;margin-right:5%}
-#gameGrid{position:relative;width:525px;height:450px;margin:110px 0 1em 0;-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;}
+#gameGrid{position:relative;width:525px;height:450px;margin-top:85px;margin-bottom:1em;-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;}
 #gameGrid .board{position:absolute;top:-6px;left:-6px;z-index:30;opacity:.9;filter:alpha(opacity=90);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";}
 #gameGrid .board img{-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;border:3px solid #f7d805}
 #gameGrid .column{position:relative;float:left;width:75px;height:450px;text-align:center}
 #gameGrid .slot{float:left;width:65px;height:65px;background-color:#fff;-webkit-border-radius:50px;-moz-border-radius:50px;-ms-border-radius:50px;-o-border-radius:50px;border-radius:50px;-webkit-box-shadow:inset 1px 2px 5px #000;-moz-box-shadow:inset 1px 2px 5px #000;-ms-box-shadow:inset 1px 2px 5px #000;-o-box-shadow:inset 1px 2px 5px #000;box-shadow:inset 1px 2px 5px #000;margin:5px}
-#gameGrid .dot{width:75px;height:75px;position:absolute;top:0;left:0;margin-top:-100px;-webkit-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-moz-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-ms-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-o-transition:margin .35s cubic-bezier(.95,.05,.795,.035);transition:margin .35s cubic-bezier(.95,.05,.795,.035);margin-top:-116px;-webkit-transition:margin 1s ease-in-out;-moz-transition:margin 1s ease-in-out;-ms-transition:margin 1s ease-in-out;-o-transition:margin 1s ease-in-out;transition:margin 1s ease-in-out}
+#gameGrid .dot{width:75px;height:75px;position:absolute;top:0;left:0;margin-top:-85px;-webkit-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-moz-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-ms-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-o-transition:margin .35s cubic-bezier(.95,.05,.795,.035);transition:margin .35s cubic-bezier(.95,.05,.795,.035)}
 #gameGrid .dot.spot-0{margin-top:375px}
 #gameGrid .dot.spot-1{margin-top:300px}
 #gameGrid .dot.spot-2{margin-top:225px}
