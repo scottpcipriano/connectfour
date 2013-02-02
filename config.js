@@ -5,7 +5,7 @@
 
 var nconf = require('nconf'),
 	fs = require('fs'),
-	nodeEnv = require('./app').get('env'),
+	nodeEnv = require('./app').app.get('env'),
 	json = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
 nconf.argv().env().file({

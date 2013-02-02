@@ -5,8 +5,8 @@ var express = require('express'),
 	passport = require('passport'),
 	util = require('util'),
 	GoogleStrategy = require('passport-google').Strategy,
-	socketLayer = require('./socket-layer'),
-	app = module.exports = express(),
+	socketLayer = require('socket.io'),
+	app = exports.app = express(),
 	hbs = exphbs.create({ /* config */ }),
 	config = require('./config'),
 	port = config.get('PORT'),
@@ -107,5 +107,18 @@ app.configure('development', function() {
 
 server = http.createServer(app).listen(app.get('port'), function() {
 	console.log('Express server listening on port: ' + app.get('port'));
-	socketLayer(app, server);
+
+	// hook up the sockets
+	var io = exports.io = socketLayer.listen(server);
+	// making it work with long polling for Heroku
+	// https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
+	// http://stackoverflow.com/questions/6223867/can-i-set-up-socket-io-chat-on-heroku
+	// http://robdodson.me/blog/2012/06/04/deploying-your-first-node-dot-js-and-socket-dot-io-app-to-heroku/
+	io.configure(function() {
+		io.set("transports", ["xhr-polling"]);
+		io.set("polling duration", 10);
+	});
+	// when sockets are running, pass the variable along to controllers
+	require('./controllers/games').attachSocketLayer(io);
+
 });
