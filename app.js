@@ -49,7 +49,7 @@ passport.use(new GoogleStrategy({
   },
   function(identifier, profile, done) {
     process.nextTick(function () {
-      var query = User.findOne({ 'externalid': identifier });
+      var query = User.findOne({ 'email': profile.emails[0].value });
       query.exec(function (err, oldUser) {
         console.log(oldUser);
         if(oldUser) {
@@ -57,7 +57,6 @@ passport.use(new GoogleStrategy({
           done(null, oldUser);
         } else {
           var newUser = new User();
-          newUser.externalid = identifier;
           newUser.name = profile.displayName;
           newUser.email = profile.emails[0].value;
 

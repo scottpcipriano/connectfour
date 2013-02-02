@@ -11,14 +11,13 @@ module.exports = function(app, mongoose) {
 	});
 
 	var GameSchema = new mongoose.Schema({
-		player_1_id: String,
-		player_2_id: String,
+		player_1_email: String,
+		player_2_email: String,
 		turn: Number,
 		board: [Board]
 	});
 
 	var UserSchema = new mongoose.Schema({
-		externalid: String,
 		name: String,
 		email: String
 	});
