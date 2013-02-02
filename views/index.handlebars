@@ -1,26 +1,23 @@
 <h1>{{title}}</h1>
 
 {{#if user}}
+
 	<h2>Hello, {{user.name}}.</h2>
 	<p>ID: {{user.externalid}}</p>
 	<p>Name: {{user.name}}</p>
 	<p>Email: {{user.email}}</p>
+		
+	<h2>Currently active games: {{games.length}}</h2>
 	
-
-<p><a href="/users">Active users</a></p>
-
-<h2>Currently active games: {{games.length}}</h2>
-
-<h2>List of active games </h2>
-
-<ul>
-	{{#each games}}
-  		<li><a href="/game/{{_id}}">Game: {{this}}</a></li>
-	{{/each}}
-</ul>	
-	
+	<ul>
+		{{#each games}}
+	  		<li><a href="/game/{{_id}}">Game: {{this}}</a></li>
+		{{/each}}
+	</ul>	
 	
 {{else}}
+
 	<h2>Welcome! Please <a href="/auth/google">login with Google</a> to play a game.</h2>
+
 {{/if}}
 
