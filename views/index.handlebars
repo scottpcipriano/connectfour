@@ -1,12 +1,13 @@
-<h1>{{title}}</h1>
+
 
 <h2>Hello, {{user.name}}.</h2>
 <p>ID: {{user.externalid}}</p>
 <p>Name: {{user.name}}</p>
 <p>Email: {{user.email}}</p>
 	
-<a href="/creategame">Create new Game</a>
+<a href="/creategame" class="button">Create Game</a>
 	
+<div class="gamesList">	
 <h2>My games ({{myGames.length}})</h2>
 
 <ul>
@@ -14,11 +15,14 @@
   		<li>Game {{_id}} -  <a href="/game/{{_id}}">view</a></li>
 	{{/each}}
 </ul>	
+</div>
 
+<div class="gamesList">
 <h2>Games to join or view ({{otherGames.length}})</h2>
 
 <ul>
 	{{#each otherGames}}
-  		<li>Game {{_id}} -  <a href="/game/{{_id}}">view</a> | <a href="">join</a></li>
+  		<li>Game {{_id}}   <span class="actions"><a href="/game/{{_id}}">view</a> | <a href="">join</a></span></li>
 	{{/each}}
-</ul>	
+</ul>
+</div>	
