@@ -7,11 +7,13 @@
 	<p>Name: {{user.name}}</p>
 	<p>Email: {{user.email}}</p>
 		
+	<a href="/creategame">Create new Game</a>
+		
 	<h2>Currently active games: {{games.length}}</h2>
 	
 	<ul>
 		{{#each games}}
-	  		<li><a href="/game/{{_id}}">Game: {{this}}</a></li>
+	  		<li><a href="/game/{{_id}}">View game:</a> - player_1_id={{player_1_id}} - player_2_id={{player_2_id}} - turn={{turn}} </li>
 		{{/each}}
 	</ul>	
 	

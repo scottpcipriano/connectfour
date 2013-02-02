@@ -3,10 +3,13 @@ var mongoose = require('mongoose'),
   ObjectId = mongoose.Types.ObjectId; 
 
 // create a game
-exports.create = function (callback) {
-  var game = new Game()
-  	game.turn = 1;
-  game.save(function (err) {callback()});
+exports.create = function (user,callback) {
+  var game = new Game();
+  game.turn = 1;
+  game.player_1_id = user.externalid;
+  game.save(function (err) {
+  	callback(game);
+  });
 
 }
 
