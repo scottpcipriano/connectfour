@@ -3,22 +3,25 @@
 <head>
     <meta charset="utf-8" />
     <title>Connect Four</title>
+	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,300italic,600italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/css/style.css"></link>
     {{#if domain}}<script>var __DOMAIN__ = '{{domain}}';</script>{{/if}}
 </head>
 <body class="{{className}}">
 	<div id="page" data-role="page" > 
-		<header>{{header}}</header>
+		<header>
+			<h1><a href="/">{{header}}</a></h1>
+			{{#if user}}
+				<nav>
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/users">Users</a></li>
+						<li><a href="/logout">Log Out</a></li>
+					</ul>
+				</nav>
+			{{/if}}
+		</header>
 		<div id="content" data-role="content">
-
-
-	{{#if user}}
-			<p>
-				<a href="/">Home</a> | 
-				<a href="/users">Users</a> | 	
-				<a href="/logout">Log Out</a>
-			</p>
-		{{/if}}
 
     		{{{body}}}
 
