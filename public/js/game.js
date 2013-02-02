@@ -24,6 +24,7 @@ $(function($) {
 
 	socket.on('sendChatMessageToAll', function(message) {
 		$chatLog.append('<p><span class="playerTwo">The other player:</span> ' + message + '</p>');
+		$chatLog.scrollTop($chatLog[0].scrollHeight);
 	});
 
 	$chatInput.on('keyup', function(event) {
@@ -35,6 +36,7 @@ $(function($) {
 			$chatInput.val('');
 			$chatLog.append('<p><span class="playerOne">Me:</span> ' + inputValue + '</p>');
 			// console.log(socket.broadcast);
+			$chatLog.scrollTop($chatLog[0].scrollHeight);
 			socket.emit('sendChatMessage', inputValue);
 		}
 	});
