@@ -26,3 +26,17 @@ exports.list = function (callback)  {
       callback(games);
   });
 }
+
+// return list of games associated with a user
+exports.listForUser = function (user, callback)  {
+  Game.find({$or:[{player_1_id: user.externalid },{player_2_id: user.externalid }]}, function(err, games) {
+      callback(games);
+  });
+}
+
+// return list of games not associated with the user
+exports.listOtherGames = function (user, callback)  {
+  Game.find({$nor:[{player_1_id: user.externalid },{player_2_id: user.externalid }]}, function(err, games) {
+      callback(games);
+  });
+}

@@ -1,25 +1,24 @@
 <h1>{{title}}</h1>
 
-{{#if user}}
-
-	<h2>Hello, {{user.name}}.</h2>
-	<p>ID: {{user.externalid}}</p>
-	<p>Name: {{user.name}}</p>
-	<p>Email: {{user.email}}</p>
-		
-	<a href="/creategame">Create new Game</a>
-		
-	<h2>Currently active games: {{games.length}}</h2>
+<h2>Hello, {{user.name}}.</h2>
+<p>ID: {{user.externalid}}</p>
+<p>Name: {{user.name}}</p>
+<p>Email: {{user.email}}</p>
 	
-	<ul>
-		{{#each games}}
-	  		<li><a href="/game/{{_id}}">View game:</a> - player_1_id={{player_1_id}} - player_2_id={{player_2_id}} - turn={{turn}} </li>
-		{{/each}}
-	</ul>	
+<a href="/creategame">Create new Game</a>
 	
-{{else}}
+<h2>My games ({{myGames.length}})</h2>
 
-	<h2>Welcome! Please <a href="/auth/google">login with Google</a> to play a game.</h2>
+<ul>
+	{{#each myGames}}
+  		<li>Game {{_id}} -  <a href="/game/{{_id}}">view</a></li>
+	{{/each}}
+</ul>	
 
-{{/if}}
+<h2>Games to join or view ({{otherGames.length}})</h2>
 
+<ul>
+	{{#each otherGames}}
+  		<li>Game {{_id}} -  <a href="/game/{{_id}}">view</a> | <a href="">join</a></li>
+	{{/each}}
+</ul>	
