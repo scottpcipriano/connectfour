@@ -3,6 +3,7 @@
 $numCols = 7
 $numRows = 6
 $cellSize = 75
+$cellPadding = 5
 
 
 vendor(prop, args)
@@ -51,8 +52,8 @@ h2
 
 #gameGrid
 	position relative
-	width ($cellSize*$numCols)px
-	height ($cellSize*$numRows)px
+	width $cellSize*$numCols px
+	height $cellSize*$numRows px
 	margin 110px 0 1em 0
 	border-radius(10px)
 	border 3px solid #f7d805
@@ -70,16 +71,17 @@ h2
 	.column
 		position relative
 		float left
-		width ($cellSize)px
+		width $cellSize px
 		height 100%
 		text-align center
 
 	.slot
-		width $cellSize px
-		height $cellSize px
+		width $cellSize - $cellPadding px
+		height $cellSize - $cellPadding px
 		background-color white
 		border-radius(50px)
-		box-shadow(inset 1px 2px 5px #000)
+		//box-shadow(inset 1px 2px 5px #000)
+		margin $cellPadding px
 
 	.dot
 		width $cellSize px
@@ -94,13 +96,13 @@ h2
 		transition(margin, 1s, ease-in-out)
 
 	.dot.spot-0
-		margin-top ($cellSize*5) px
+		margin-top $cellSize*5 px
 	.dot.spot-1
-		margin-top ($cellSize*4) px
+		margin-top $cellSize*4 px
 	.dot.spot-2
-		margin-top ($cellSize*3) px
+		margin-top $cellSize*3 px
 	.dot.spot-3
-		margin-top ($cellSize*2) px
+		margin-top $cellSize*2 px
 	.dot.spot-4
 		margin-top $cellSize px
 	.dot.spot-5
