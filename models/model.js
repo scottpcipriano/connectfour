@@ -11,8 +11,8 @@ module.exports = function(app, mongoose) {
 	});
 
 	var GameSchema = new mongoose.Schema({
-		player_1_id: Number,
-		player_2_id: Number,
+		player_1_id: String,
+		player_2_id: String,
 		turn: Number,
 		board: [Board]
 	});

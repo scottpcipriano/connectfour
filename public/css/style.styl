@@ -1,12 +1,9 @@
 @import 'nib'
 @import 'layout'
 
-$num-cols = 7
-
-border-radius(n)
-  -webkit-border-radius n
-  -moz-border-radius n
-  border-radius n
+$numCols = 7
+$numRows = 6
+$cellSize = 75
 
 
 vendor(prop, args)
@@ -16,8 +13,14 @@ vendor(prop, args)
     -o-{prop} args
     {prop} args
 
+box-shadow()
+	vendor('box-shadow', arguments)
+   
 transition()
     vendor('transition', arguments)
+
+border-radius(n)
+  vendor('border-radius', arguments)
 	
 
 body
@@ -49,48 +52,58 @@ h2
 
 #gameGrid
 	position relative
-	width 706px
-	height 606px
-	margin 0 0 1em 0
-	padding 100px 0 0 0
+	width ($cellSize*$numCols)px
+	height ($cellSize*$numRows)px
+	margin 110px 0 1em 0
+	border-radius(10px)
+	border 3px solid #f7d805
 
 	.board
 		position absolute
-		top 100px
+		top 0
 		left 0
-		z-index 30
-		width 700px
-		height 600px
-		border-radius(10px)
-		border 3px solid #f7d805
+		z-index -30
+		width 100%
+		height 100%
 		background-color #f7e305
 		opacity 0.7
 		
 	.column
 		position relative
 		float left
-		width 100px
+		width ($cellSize)px
 		height 100%
 		text-align center
+
+	.slot
+		width $cellSize px
+		height $cellSize px
+		background-color white
+		border-radius(50px)
+		box-shadow(inset 1px 2px 5px #000)
+
 	.dot
-		width 100px
-		height 100px
+		width $cellSize px
+		height $cellSize px
 		position absolute
 		top 0
 		left 0
 		margin-top -100px
 		// http://matthewlein.com/ceaser/ <-- easing tool
-		transition(margin, .35s, cubic-bezier(0.950, 0.050, 0.795, 0.035))
+		transition(margin, .35s, cubic-bezier(0.950,  0.050, 0.795, 0.035))
+		margin-top -116px
+		transition(margin, 1s, ease-in-out)
+
 	.dot.spot-0
-		margin-top 500px
+		margin-top ($cellSize*5) px
 	.dot.spot-1
-		margin-top 400px
+		margin-top ($cellSize*4) px
 	.dot.spot-2
-		margin-top 300px
+		margin-top ($cellSize*3) px
 	.dot.spot-3
-		margin-top 200px
+		margin-top ($cellSize*2) px
 	.dot.spot-4
-		margin-top 
+		margin-top $cellSize px
 	.dot.spot-5
 		margin-top 0
 

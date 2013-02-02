@@ -21,6 +21,13 @@ module.exports = function(app,model,passport) {
 		});
 	});
 
+	// create a new game and redirect to it
+	app.get('/creategame', function(req, res){
+		games.create(req.user, function(game) {
+			res.redirect('/game/' + game._id);
+		});
+	});
+
 	app.get('/game/:id'	, ensureAuthenticated, function(req,res) {
 		games.get(req.params.id, function(game) {
 			res.render('game', {
