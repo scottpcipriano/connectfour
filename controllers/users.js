@@ -9,19 +9,6 @@ exports.count = function (callback)  {
   });
 }
 
-//
-exports.findByIdOrCreate = function (externalid, callback) {
-	User.findOne({}, function (err, users) {
-		if (users.length > 0) {
-			callback(user);
-		} else {
-			 var user = new User();
-			 user.externalid = externalid;
-			 user.save(function (err) {callback(user)});
-		}
-	});
-}
-
 // return list of all users
 exports.list = function (callback)  {
   User.find({}, function(err, users) {
