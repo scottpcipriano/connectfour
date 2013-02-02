@@ -16,8 +16,12 @@ h2{color:#800080}
 #gameGrid .board{position:absolute;top:0;left:0;z-index:-30;width:100%;height:100%;background-color:#f7e305;opacity:.7;filter:alpha(opacity=70);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"}
 #gameGrid .column{position:relative;float:left;width:75px;height:100%;text-align:center}
 #gameGrid .slot{width:75px;height:75px;background-color:#fff;-webkit-border-radius:50px;-moz-border-radius:50px;-ms-border-radius:50px;-o-border-radius:50px;border-radius:50px;-webkit-box-shadow:inset 1px 2px 5px #000;-moz-box-shadow:inset 1px 2px 5px #000;-ms-box-shadow:inset 1px 2px 5px #000;-o-box-shadow:inset 1px 2px 5px #000;box-shadow:inset 1px 2px 5px #000}
+<<<<<<< HEAD
 #gameGrid .dot{width:75px;height:75px;position:absolute;top:0;left:0;margin-top:-116px;-webkit-transition:margin 1s ease-in-out;-moz-transition:margin 1s ease-in-out;-ms-transition:margin 1s ease-in-out;-o-transition:margin 1s ease-in-out;transition:margin 1s ease-in-out}
 >>>>>>> Game Grid Revisions
+=======
+#gameGrid .dot{width:75px;height:75px;position:absolute;top:0;left:0;margin-top:-116px;-webkit-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-moz-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-ms-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-o-transition:margin .35s cubic-bezier(.95,.05,.795,.035);transition:margin .35s cubic-bezier(.95,.05,.795,.035)}
+>>>>>>> Incorporated Robert's Transition Updates
 #gameGrid .dot.spot-0{margin-top:500px}
 #gameGrid .dot.spot-1{margin-top:400px}
 #gameGrid .dot.spot-2{margin-top:300px}
