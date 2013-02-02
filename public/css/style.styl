@@ -1,3 +1,5 @@
+@import 'nib'
+
 $num-cols = 7
 
 border-radius(n)
@@ -6,12 +8,15 @@ border-radius(n)
   border-radius n
 
 
-transition(@range, @time, @ease) {
-    -moz-transition: @range @time @ease;
-    -webkit-transition: @range @time @ease;
-    -o-transition: @range @time @ease;
-    transition: @range @time @ease;
-}
+vendor(prop, args)
+    -webkit-{prop} args
+    -moz-{prop} args
+    -ms-{prop} args
+    -o-{prop} args
+    {prop} args
+
+transition()
+    vendor('transition', arguments)
 	
 
 body
@@ -43,14 +48,10 @@ h2
 
 #gameGrid
 	position relative
-	//float left
-	//width 100%
-	width 704px
-	height 604px
+	width 706px
+	height 606px
 	margin 0 0 1em 0
 	padding 100px 0 0 0
-	border 1px solid black
-	
 
 	.board
 		position absolute
@@ -77,7 +78,7 @@ h2
 		top 0
 		left 0
 		margin-top -100px
-		transition(margin, 5s, ease-in-out)
+		transition(margin, 1s, ease-in-out)
 	.dot.spot-0
 		margin-top 500px
 	.dot.spot-1

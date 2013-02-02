@@ -1,5 +1,7 @@
 var express = require('express'),
 	exphbs  = require('express3-handlebars'),
+	stylus = require('stylus'),
+	nib = require('nib'),
 	passport = require('passport'),
 	util = require('util'),
 	GoogleStrategy = require('passport-google').Strategy,
@@ -70,6 +72,13 @@ passport.use(new GoogleStrategy({
   }
 ));
 
+function compile(str,path) {
+	return stylus(str)
+	.set('filename', path)
+	.set('compress', true)
+	.use(nib())
+}
+
 app.configure(function() {
 	app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 	app.set('port', process.env.PORT || port);
@@ -83,9 +92,9 @@ app.configure(function() {
 	// must be before passport.session()
 	app.use(express.session({ secret: 'SBO' }));
 	app.use(express.methodOverride());	
-  app.use(passport.initialize());
-  app.use(passport.session());	
-	app.use(require('stylus').middleware(__dirname + '/public'));
+	app.use(passport.initialize());
+	app.use(passport.session());	
+	app.use(stylus.middleware({src:__dirname + '/public', compile: compile}));
 	app.use(express.static(path.join(__dirname, 'public')));
   app.use(app.router);
 });
