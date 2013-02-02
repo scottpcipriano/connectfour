@@ -1,9 +1,7 @@
-<h1>{{title}}</h1>
-
-<p>Number of users on page: {{users.length}}</p>
+<h1>Active users ({{users.length}})</h1>
 
 <ul>
 	{{#each users}}
-  		<li>User -  externalid:{{externalid}} , name:{{name}}, email:{{email}}</li>
+  		<li>{{name}} - <a href="mailto:{{email}}">{{email}}</a></li>
 	{{/each}}
 </ul>	
