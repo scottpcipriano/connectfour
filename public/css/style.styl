@@ -56,31 +56,36 @@ h2
 	height $cellSize*$numRows px
 	margin 110px 0 1em 0
 	border-radius(10px)
-	border 3px solid #f7d805
+	//border 3px solid #f7d805
 
 	.board
 		position absolute
-		top 0
-		left 0
-		z-index -30
-		width 100%
-		height 100%
-		background-color #f7e305
-		opacity 0.7
-		
+		top -6px
+		left -6px
+		z-index 30
+		//width 100%
+		//height 100%
+		//background-color #f7e305
+		opacity 0.9
+		img
+			border-radius(10px)
+			border 3px solid #f7d805
+			//opacity 0.9
+
 	.column
 		position relative
 		float left
 		width $cellSize px
-		height 100%
+		height $cellSize*$numRows px
 		text-align center
 
 	.slot
-		width $cellSize - $cellPadding px
-		height $cellSize - $cellPadding px
+		float left
+		width $cellSize - $cellPadding*2 px
+		height $cellSize - $cellPadding*2 px
 		background-color white
 		border-radius(50px)
-		//box-shadow(inset 1px 2px 5px #000)
+		box-shadow(inset 1px 2px 5px #000)
 		margin $cellPadding px
 
 	.dot
