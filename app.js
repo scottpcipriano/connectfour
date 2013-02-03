@@ -1,4 +1,6 @@
 var express = require('express'),
+	handlebars = require('handlebars'),
+	hbsHelpers = require('./views/helpers/helpers')(handlebars),	
 	exphbs  = require('express3-handlebars'),
 	stylus = require('stylus'),
 	nib = require('nib'),
@@ -7,7 +9,6 @@ var express = require('express'),
 	GoogleStrategy = require('passport-google').Strategy,
 	socketLayer = require('socket.io'),
 	app = exports.app = express(),
-	hbs = exphbs.create({ /* config */ }),
 	config = require('./config'),
 	port = config.get('PORT'),
 	domain = config.get('DOMAIN'),
@@ -51,18 +52,14 @@ passport.use(new GoogleStrategy({
     process.nextTick(function () {
       var query = User.findOne({ 'email': profile.emails[0].value });
       query.exec(function (err, oldUser) {
-        console.log(oldUser);
         if(oldUser) {
-          console.log('User: ' + oldUser.name + ' found and logged in!');
           done(null, oldUser);
         } else {
           var newUser = new User();
           newUser.name = profile.displayName;
           newUser.email = profile.emails[0].value;
-
           newUser.save(function(err) {
             if(err) {throw err;}
-            console.log('New user: ' + newUser.name + ' created and logged in!');
             done(null, newUser);
           }); 
         }
@@ -79,7 +76,7 @@ function compile(str,path) {
 }
 
 app.configure(function() {
-	app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+	app.engine('handlebars', exphbs({handlebars:handlebars, defaultLayout: 'main'}));
 	app.set('port', process.env.PORT || port);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'handlebars');

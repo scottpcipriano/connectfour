@@ -9,7 +9,7 @@
 
 <ul>
 	{{#each myGames}}
-  		<li>Game {{_id}} -  <a href="/game/{{_id}}">view</a></li>
+  		<li>{{opponent ../user}} <span class="actions"><a href="/game/{{_id}}">view</a></span></li>
 	{{/each}}
 </ul>	
 </div>
@@ -19,7 +19,7 @@
 
 <ul>
 	{{#each otherGames}}
-  		<li>Game {{_id}}   <span class="actions"><a href="/game/{{_id}}">view</a> | <a href="">join</a></span></li>
+  		<li>{{playerOneExists}} vs. {{playerTwoExists}} <span class="actions"><a href="/game/{{_id}}">view</a> {{join}}</li>
 	{{/each}}
 </ul>
 </div>	

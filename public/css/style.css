@@ -2,7 +2,7 @@ body{font:14px "Lucida Grande",Helvetica,Arial,sans-serif}
 a{color:#00b7ff}
 h2{color:#332f60}
 #page{width:95%;margin:0 auto}
-#content{width:100%;min-width:1060px}
+#content{width:100%}
 .panel{float:left}
 #gamePanel{width:65%;margin-right:5%}
 #gameGrid{position:relative;width:525px;height:450px;margin-top:85px;margin-bottom:1em;-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;}
@@ -27,12 +27,6 @@ h2{color:#332f60}
 .gamesList li:hover{background-color:#83cde2}
 .button{display:inline-block;line-height:30px;padding:10px 20px;background-color:#83cde2;text-decoration:none;font-weight:bold;-webkit-transition:all .2s ease;-moz-transition:all .2s ease;-ms-transition:all .2s ease;-o-transition:all .2s ease;transition:all .2s ease}
 .button:hover{background-color:#76b9cb}
-.playerOne{color:#f00}
-.playerTwo{color:#008000}
-#chatPanel{width:30%}
-#chatInput{margin:0 0 20px;border:1px solid #ccc;width:100%;-webkit-box-shadow:3px 3px 8px #ddd inset,3px 3px 8px #888;-moz-box-shadow:3px 3px 8px #ddd inset,3px 3px 8px #888;-ms-box-shadow:3px 3px 8px #ddd inset,3px 3px 8px #888;-o-box-shadow:3px 3px 8px #ddd inset,3px 3px 8px #888;box-shadow:3px 3px 8px #ddd inset,3px 3px 8px #888}
-#chatLog{margin:0 0 20px;padding:25px;height:200px;border:1px solid #ccc;-webkit-box-shadow:3px 3px 8px #ddd inset,3px 3px 8px #888;-moz-box-shadow:3px 3px 8px #ddd inset,3px 3px 8px #888;-ms-box-shadow:3px 3px 8px #ddd inset,3px 3px 8px #888;-o-box-shadow:3px 3px 8px #ddd inset,3px 3px 8px #888;box-shadow:3px 3px 8px #ddd inset,3px 3px 8px #888;background-color:#fff;overflow:auto;}
-#chatLog p{margin:0 0 5px}
 html{background-color:#4e95c7}
 body{margin:0;color:#fff;background-color:#4e95c7;font:15px/1.2em 'Source Sans Pro',sans-serif}
 a,a:hover,a:visited,a:focus{color:#fff}
@@ -46,6 +40,62 @@ header li{float:left;margin:0 0 0 1px;}
 header li a{display:block;line-height:30px;padding:0 20px;background-color:#83cde2;text-decoration:none;-webkit-transition:all .2s ease;-moz-transition:all .2s ease;-ms-transition:all .2s ease;-o-transition:all .2s ease;transition:all .2s ease}
 header li a:hover{background-color:#76b9cb;padding-top:5px}
 #content{clear:both;overflow:hidden;padding:25px;width:auto}
-.game #content{min-height:789px;background:url("../images/boy.png") no-repeat right bottom transparent;border-bottom:5px solid #fff}
-#chatPanel{float:left}
-#gamePanel{float:right;margin:58px 255px 0 0;width:auto}
+.game{background-color:#e0e0e0;}
+.game #page{background-image:url("../images/boy.png"),url("../images/girl.png"),url("../images/bubbles.png");background-repeat:no-repeat,no-repeat,no-repeat;background-position:right -10px,0 150px,155px 300px;background-color:#4e95c7,transparent,transparent}
+.game #content{min-height:620px;border-bottom:5px solid #fff}
+.gameStats{float:left;margin:15px 0 0 50px;}
+.gameStats h3{margin:0}
+.gameStats p{margin:0}
+.playerOne{font-weight:600;color:#e1d100}
+.playerTwo{font-weight:600;color:#4dff62}
+#chatPanel{float:left;width:30%}
+#chatPanel *{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box}
+#chatInput{font-size:15px;margin:0 0 8px;padding:4px;border:5px solid #fff;width:100%;color:#fff;background-color:#3e779f;-webkit-box-shadow:3px 3px 8px #426771;-moz-box-shadow:3px 3px 8px #426771;-ms-box-shadow:3px 3px 8px #426771;-o-box-shadow:3px 3px 8px #426771;box-shadow:3px 3px 8px #426771}
+#chatLog{margin:0 0 20px;padding:4px;width:100%;height:150px;background-color:#3e779f;border:5px solid #fff;-webkit-box-shadow:3px 3px 8px #426771;-moz-box-shadow:3px 3px 8px #426771;-ms-box-shadow:3px 3px 8px #426771;-o-box-shadow:3px 3px 8px #426771;box-shadow:3px 3px 8px #426771;overflow:auto;}
+#chatLog p{margin:0 0 5px}
+#gamePanel{float:right;margin:10px 250px 0 0;width:auto}
+.eggz{height:100%;}
+.eggz body{height:100%;background:url("../images/hipster.png") no-repeat 90% bottom transparent}
+@media only screen and (min-width: 901px) and (max-width: 1200px){#gamePanel{margin-right:5%}
+}@media only screen and (min-width: 481px) and (max-width: 900px){header h1{-webkit-background-size:355px auto;-moz-background-size:355px auto;-ms-background-size:355px auto;-o-background-size:355px auto;background-size:355px auto;}
+header h1 a{width:355px;height:64px}
+header nav{margin:0;}
+header nav ul{padding:0}
+header nav li{margin:0 0 1px;float:none}
+.gameStats{float:none;clear:left;margin:10px 0 0 15px;padding:10px 0 0;color:#000}
+.game{background-color:#e0e0e0}
+.game #page{background:url("../images/boy.png") no-repeat right -10px transparent}
+#gamePanel{margin-right:10%}
+#gameGrid{width:350px;height:300px;margin-top:60px;}
+#gameGrid .board img{width:100%;background-color:#fff;-webkit-border-radius:7px;-moz-border-radius:7px;-ms-border-radius:7px;-o-border-radius:7px;border-radius:7px}
+#gameGrid .column{width:50px;height:300px}
+#gameGrid .slot{width:40px;height:40px}
+#gameGrid .dot{width:50px;height:50px;margin-top:-60px}
+#gameGrid .dot.spot-0{margin-top:250px}
+#gameGrid .dot.spot-1{margin-top:200px}
+#gameGrid .dot.spot-2{margin-top:150px}
+#gameGrid .dot.spot-3{margin-top:100px}
+#gameGrid .dot.spot-4{margin-top:50px}
+}@media only screen and (min-width: 0px) and (max-width: 480px){header h1{-webkit-background-size:250px auto;-moz-background-size:250px auto;-ms-background-size:250px auto;-o-background-size:250px auto;background-size:250px auto;}
+header h1 a{width:250px;height:60px}
+header nav{float:left;margin:0;}
+header nav ul{padding:0}
+.gamesList{width:100%;}
+.gamesList li .actions{display:block;float:none;padding:10px 0;}
+.gamesList li .actions a{padding:10px;margin:10px;background-color:#83cde2}
+.gameStats{float:none;clear:left;margin:10px 0 0 15px;padding:10px 0 0;font-weight:600}
+.game{background-color:#e0e0e0}
+.game #page{background:url("../images/boy.png") no-repeat right -10px transparent}
+#gamePanel{margin:10% 5% 0 0}
+#chatPanel{margin:2% 0 0 -5%;width:100%}
+#gameGrid{width:266px;height:228px;margin-top:48px;}
+#gameGrid .board img{width:100%;background-color:#fff;-webkit-border-radius:7px;-moz-border-radius:7px;-ms-border-radius:7px;-o-border-radius:7px;border-radius:7px}
+#gameGrid .column{width:38px;height:228px}
+#gameGrid .slot{width:28px;height:28px}
+#gameGrid .dot{width:38px;height:38px;margin-top:-48px}
+#gameGrid .dot.spot-0{margin-top:190px}
+#gameGrid .dot.spot-1{margin-top:152px}
+#gameGrid .dot.spot-2{margin-top:114px}
+#gameGrid .dot.spot-3{margin-top:76px}
+#gameGrid .dot.spot-4{margin-top:38px}
+}
