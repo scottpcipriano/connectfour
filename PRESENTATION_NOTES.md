@@ -4,7 +4,9 @@
  * All JavaScript.  Everyone can go full stack.
  * Popular editors:
    * ```Sublime Text 2```
+   * ```Vim```
    * ```WebStorm```
+   * ```Aptana Studio```
  * ```Nodemon``` is cool, allows auto-restarts when files are saved.
 
 ## Frameworks
@@ -13,5 +15,8 @@
 ## Templating Language
  * We started out ```Jade```.  Really stripped down syntax.
  * Switched to ```Handlebars```.  Syntax is more familiar and easier to pick up in this short period.
+
+## Styles
+ * We are using ```Stylus``` instead of CSS.  Allows for variables.
 
 ## Testing
