@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Connect Four</title>
+    <meta name="viewport" content="width=device-width">
 	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,300italic,600italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/css/style.css"></link>
     {{#if domain}}<script>var __DOMAIN__ = '{{domain}}';</script>{{/if}}
@@ -19,6 +20,14 @@
 						<li><a href="/logout">Log Out</a></li>
 					</ul>
 				</nav>
+			{{/if}}
+			{{#if isGame}}
+				<div class="gameStats">
+					<h3>Game {{game._id}}</h3>
+					<p>Player 1: {{game.player_1_email}}</p>
+					<p>Player 2: {{game.player_2_email}}</p>
+					<p>It is player {{game.turn}}'s turn</p>
+				</div>
 			{{/if}}
 		</header>
 		<div id="content" data-role="content">

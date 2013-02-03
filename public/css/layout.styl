@@ -52,20 +52,24 @@ header
 	overflow hidden
 	padding 25px
 	width auto
-
 .game
 	background-color #e0e0e0
-	header
-		background-color #4e95c7
 	#page
-		background-image url('../images/girl.png'), url('../images/bubbles.png')
-		background-repeat no-repeat, no-repeat;
-		background-position 0 350px, 175px 475px
-		background-color #4e95c7, transparent
+		background-image url('../images/boy.png'), url('../images/girl.png'), url('../images/bubbles.png')
+		background-repeat no-repeat, no-repeat, no-repeat
+		background-position right -10px, 0 150px, 155px 300px
+		background-color #4e95c7, transparent, transparent
 	#content
-		min-height 789px
-		background url('../images/boy.png') no-repeat right bottom transparent
+		min-height 620px
 		border-bottom 5px solid white
+
+.gameStats
+	float left
+	margin 15px 0 0 50px
+	h3
+		margin 0
+	p
+		margin 0
 
 .playerOne
 	font-weight 600
@@ -108,7 +112,7 @@ header
 
 #gamePanel
 	float right
-	margin 58px 255px 0 0
+	margin 10px 250px 0 0
 	width auto
 
 
