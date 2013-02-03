@@ -13,7 +13,7 @@ module.exports = function(app, mongoose) {
 	var GameSchema = new mongoose.Schema({
 		player_1_email: String,
 		player_2_email: String,
-		turn: Number,
+		turn: String,
 		board: [Board]
 	});
 

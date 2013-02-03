@@ -40,7 +40,7 @@ var self = module.exports = {
 	// create a game
 	create: function (user,callback) {
 		var game = new Game();
-		game.turn = 1;
+		game.turn = user.email;
 		game.player_1_email = user.email;
 		game.save(function (err) {
 			callback(game);
