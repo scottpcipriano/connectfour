@@ -30,6 +30,13 @@ module.exports = function(app,model,passport) {
 		});
 	});
 
+	// join game and redirect to it
+	app.get('/joingame/:id', ensureAuthenticated, function(req, res){
+		games.join(req.user, req.params.id, function(game) {
+			res.redirect('/game/' + game._id);
+		});
+	});
+
 	// view a specific game
 	app.get('/game/:id'	, ensureAuthenticated, function(req,res) {
 		games.get(req.params.id, function(game) {

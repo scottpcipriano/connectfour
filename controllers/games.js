@@ -47,6 +47,24 @@ var self = module.exports = {
 		});
 	},
 
+	// join a pre-existing game
+	join: function (user,id,callback) {
+		Game.findOne({_id: new ObjectId(id)}, function(err, game) {
+			if (!game.player_1_email) {
+				game.player_1_email = user.email;
+				game.save(function (err) {
+					callback(game);
+				});
+			}
+			if (!game.player_2_email) {
+				game.player_2_email = user.email;
+				game.save(function (err) {
+					callback(game);
+				});
+			}
+		});
+	},
+
 	// retrieve game by _id
 	get: function (id,callback) {
 		Game.findOne({_id: new ObjectId(id)}, function(err, game) {
