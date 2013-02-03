@@ -1,0 +1,6 @@
+{
+	"NAME": "Connect Four",
+	"DOMAIN": "localhost",
+	"PORT": 3000,
+	"MONGO_URL": "mongodb://localhost/testdb"	
+}
