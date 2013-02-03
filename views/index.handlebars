@@ -9,7 +9,7 @@
 
 <ul>
 	{{#each myGames}}
-  		<li>{{opponent ../user}} <span class="actions"><a href="/game/{{_id}}">view</a></span></li>
+  		<li>{{opponent ../user}} {{alertMyTurn ../user}}<span class="actions"><a href="/game/{{_id}}">view</a></span></li>
 	{{/each}}
 </ul>	
 </div>

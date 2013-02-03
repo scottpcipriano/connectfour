@@ -8,11 +8,23 @@ module.exports = function(handlebars) {
 	  	return "vs. " + this.player_1_email;
 	  } else {
 	  	return new handlebars.SafeString(
-	  		"<strong>waiting on challenger</strong>"
+	  		"<em>waiting on challenger</em>"
 	  	);
 	  }
 
 	});
+	
+	// helper to alert user it is their turn (index.js)
+	handlebars.registerHelper('alertMyTurn', function(user) {
+		//console.log("MY:" + user.email);
+		//console.log("TURN:" + this.turn);		
+		if (user.email == this.turn) { 
+	  	return new handlebars.SafeString(
+	  		"- <strong>it's my turn</strong>"
+	  	);
+	  }
+
+	});	
 	
 	// helper to show if player is playing (index.js)
 	handlebars.registerHelper('playerOneExists', function() {
@@ -20,7 +32,7 @@ module.exports = function(handlebars) {
 	  	return this.player_1_email;
 	  } else {
 	  	return new handlebars.SafeString(
-	  		"<strong>waiting on challenger</strong>"
+	  		"<em>waiting on challenger</em>"
 	  	);
 	  }
 	});
@@ -31,15 +43,13 @@ module.exports = function(handlebars) {
 	  	return this.player_2_email;
 	  } else {
 	  	return new handlebars.SafeString(
-	  		"<strong>waiting on challenger</strong>"
+	  		"<em>waiting on challenger</em>"
 	  	);
 	  }
 	});
 
 	// helper to show if a game can be joined (index.js)
 	handlebars.registerHelper('join', function() {
-		console.log("P1:" + this.player_1_email);
-		console.log("P2:" + this.player_2_email);	
 	  if (this.player_1_email && this.player_2_email) {
 	  	return "";
 	  } else {
