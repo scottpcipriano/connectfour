@@ -46,16 +46,8 @@ h2
 	width 65%
 	margin-right 5%
 
-.controls
-	width $cellSize*$numCols px 
-	overflow hidden
-	margin-bottom ($cellPadding*2) px
-	a
-		display block
-		float left
-		img
-			width $cellSize px
-			height $cellSize px
+
+
 #gameGrid
 	position relative
 	width $cellSize*$numCols px
@@ -64,6 +56,17 @@ h2
 	margin-bottom 1em
 	border-radius(10px)
 	//border 3px solid #f7d805
+
+	.controls
+		width $cellSize*$numCols px
+		overflow hidden
+		margin-bottom ($cellPadding*2) px
+		a
+			display block
+			float left
+			img
+				width $cellSize px
+				height $cellSize px
 
 	.board
 		position absolute
@@ -101,23 +104,23 @@ h2
 		position absolute
 		top 0
 		left 0
-		margin-top -($cellSize + ($cellPadding*2) + 4) px
+		margin-top -($cellSize + ($cellPadding*2) + 3) px
 		// http://matthewlein.com/ceaser/ <-- easing tool
 		transition(margin, .35s, cubic-bezier(0.950,  0.050, 0.795, 0.035))
 		//transition(margin, 1s, ease-in-out)
 
 	.dot.slot-0
-		margin-top $cellSize*5 px
+		margin-top $cellSize*5 - 1 px
 	.dot.slot-1
-		margin-top $cellSize*4 px
+		margin-top $cellSize*4 - 1 px
 	.dot.slot-2
-		margin-top $cellSize*3 px
+		margin-top $cellSize*3 - 1 px
 	.dot.slot-3
-		margin-top $cellSize*2 px
+		margin-top $cellSize*2 - 1 px
 	.dot.slot-4
-		margin-top $cellSize px
+		margin-top $cellSize - 1 px
 	.dot.slot-5
-		margin-top 0
+		margin-top -1px
 
 		
 .gamesList
