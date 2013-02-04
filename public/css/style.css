@@ -69,16 +69,22 @@ header nav li{margin:0 0 1px;float:none}
 .game{background-color:#e0e0e0}
 .game #page{background:url("../images/boy.png") no-repeat right -10px transparent}
 #gamePanel{margin-right:10%}
-#gameGrid{width:350px;height:300px;margin-top:60px;}
-#gameGrid .board img{width:100%;background-color:#fff;-webkit-border-radius:7px;-moz-border-radius:7px;-ms-border-radius:7px;-o-border-radius:7px;border-radius:7px}
-#gameGrid .column{width:50px;height:300px}
-#gameGrid .slot{width:40px;height:40px}
-#gameGrid .dot{width:50px;height:50px;margin-top:-60px}
-#gameGrid .dot.spot-0{margin-top:250px}
-#gameGrid .dot.spot-1{margin-top:200px}
-#gameGrid .dot.spot-2{margin-top:150px}
-#gameGrid .dot.spot-3{margin-top:100px}
-#gameGrid .dot.spot-4{margin-top:50px}
+#gameGrid{position:relative;width:350px;height:300px;margin-bottom:1em;-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;}
+#gameGrid .controls{width:350px;overflow:hidden;margin-bottom:10px;}
+#gameGrid .controls a{display:block;float:left;}
+#gameGrid .controls a img{width:50px;height:50px}
+#gameGrid .board{position:absolute;top:57px;left:-6px;z-index:30;opacity:.9;filter:alpha(opacity=90);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";}
+#gameGrid .board img{-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;border:3px solid #f7d805}
+#gameGrid .column{position:relative;float:left;width:50px;height:300px;text-align:center}
+#gameGrid .slot{float:left;width:40px;height:40px;background-color:#fff;-webkit-border-radius:50px;-moz-border-radius:50px;-ms-border-radius:50px;-o-border-radius:50px;border-radius:50px;-webkit-box-shadow:inset 1px 2px 5px #000;-moz-box-shadow:inset 1px 2px 5px #000;-ms-box-shadow:inset 1px 2px 5px #000;-o-box-shadow:inset 1px 2px 5px #000;box-shadow:inset 1px 2px 5px #000;margin:5px}
+#gameGrid .dot{width:50px;height:50px;position:absolute;top:0;left:0;margin-top:-63px;-webkit-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-moz-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-ms-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-o-transition:margin .35s cubic-bezier(.95,.05,.795,.035);transition:margin .35s cubic-bezier(.95,.05,.795,.035)}
+#gameGrid .dot.slot-0{margin-top:249px}
+#gameGrid .dot.slot-1{margin-top:199px}
+#gameGrid .dot.slot-2{margin-top:149px}
+#gameGrid .dot.slot-3{margin-top:99px}
+#gameGrid .dot.slot-4{margin-top:49px}
+#gameGrid .dot.slot-5{margin-top:-1px}
+#gameGrid .board img{width:100%}
 }@media only screen and (min-width: 0px) and (max-width: 480px){header h1{-webkit-background-size:250px auto;-moz-background-size:250px auto;-ms-background-size:250px auto;-o-background-size:250px auto;background-size:250px auto;}
 header h1 a{width:250px;height:60px}
 header nav{float:left;margin:0;}
@@ -91,14 +97,20 @@ header nav ul{padding:0}
 .game #page{background:url("../images/boy.png") no-repeat right -10px transparent}
 #gamePanel{margin:10% 5% 0 0}
 #chatPanel{margin:2% 0 0 -5%;width:100%}
-#gameGrid{width:266px;height:228px;margin-top:48px;}
-#gameGrid .board img{width:100%;background-color:#fff;-webkit-border-radius:7px;-moz-border-radius:7px;-ms-border-radius:7px;-o-border-radius:7px;border-radius:7px}
-#gameGrid .column{width:38px;height:228px}
-#gameGrid .slot{width:28px;height:28px}
-#gameGrid .dot{width:38px;height:38px;margin-top:-48px}
-#gameGrid .dot.spot-0{margin-top:190px}
-#gameGrid .dot.spot-1{margin-top:152px}
-#gameGrid .dot.spot-2{margin-top:114px}
-#gameGrid .dot.spot-3{margin-top:76px}
-#gameGrid .dot.spot-4{margin-top:38px}
+#gameGrid{position:relative;width:266px;height:228px;margin-bottom:1em;-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;}
+#gameGrid .controls{width:266px;overflow:hidden;margin-bottom:10px;}
+#gameGrid .controls a{display:block;float:left;}
+#gameGrid .controls a img{width:38px;height:38px}
+#gameGrid .board{position:absolute;top:45px;left:-6px;z-index:30;opacity:.9;filter:alpha(opacity=90);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";}
+#gameGrid .board img{-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;border:3px solid #f7d805}
+#gameGrid .column{position:relative;float:left;width:38px;height:228px;text-align:center}
+#gameGrid .slot{float:left;width:28px;height:28px;background-color:#fff;-webkit-border-radius:50px;-moz-border-radius:50px;-ms-border-radius:50px;-o-border-radius:50px;border-radius:50px;-webkit-box-shadow:inset 1px 2px 5px #000;-moz-box-shadow:inset 1px 2px 5px #000;-ms-box-shadow:inset 1px 2px 5px #000;-o-box-shadow:inset 1px 2px 5px #000;box-shadow:inset 1px 2px 5px #000;margin:5px}
+#gameGrid .dot{width:38px;height:38px;position:absolute;top:0;left:0;margin-top:-51px;-webkit-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-moz-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-ms-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-o-transition:margin .35s cubic-bezier(.95,.05,.795,.035);transition:margin .35s cubic-bezier(.95,.05,.795,.035)}
+#gameGrid .dot.slot-0{margin-top:189px}
+#gameGrid .dot.slot-1{margin-top:151px}
+#gameGrid .dot.slot-2{margin-top:113px}
+#gameGrid .dot.slot-3{margin-top:75px}
+#gameGrid .dot.slot-4{margin-top:37px}
+#gameGrid .dot.slot-5{margin-top:-1px}
+#gameGrid .board img{width:100%}
 }

@@ -44,47 +44,10 @@ $cellSize3 = 38
 	#gamePanel
 		margin-right 10%
 
+	$gameGridCreator($cellSize2)
 
-
-	#gameGrid
-		width $cellSize2*$numCols px
-		height $cellSize2*$numRows px
-		margin-top $cellSize2 + ($cellPadding*2) px
-		.board
-			img
-				width 100%
-				background-color white
-				border-radius(7px)
-				// border 3px solid #f7d805
-
-		.column
-			width $cellSize2 px
-			height $cellSize2*$numRows px
-
-		.slot
-			width $cellSize2 - $cellPadding*2 px
-			height $cellSize2 - $cellPadding*2 px
-			// margin $cellPadding px
-
-		.dot
-			width $cellSize2 px
-			height $cellSize2 px
-			margin-top -($cellSize2 + ($cellPadding*2)) px
-
-		.dot.spot-0
-			margin-top $cellSize2*5 px
-		.dot.spot-1
-			margin-top $cellSize2*4 px
-		.dot.spot-2
-			margin-top $cellSize2*3 px
-		.dot.spot-3
-			margin-top $cellSize2*2 px
-		.dot.spot-4
-			margin-top $cellSize2 px
-		// .dot.spot-5
-		// 	margin-top 0
-
-
+	#gameGrid .board img
+		width 100%
 
 
 @media only screen and (min-width: 0px) and (max-width: 480px)
@@ -133,40 +96,7 @@ $cellSize3 = 38
 		margin 2% 0 0 -5%
 		width 100%
 
-	#gameGrid
-		width $cellSize3*$numCols px
-		height $cellSize3*$numRows px
-		margin-top $cellSize3 + ($cellPadding*2) px
-		.board
-			img
-				width 100%
-				background-color white
-				border-radius(7px)
-				// border 3px solid #f7d805
+	$gameGridCreator($cellSize3)
 
-		.column
-			width $cellSize3 px
-			height $cellSize3*$numRows px
-
-		.slot
-			width $cellSize3 - $cellPadding*2 px
-			height $cellSize3 - $cellPadding*2 px
-			// margin $cellPadding px
-
-		.dot
-			width $cellSize3 px
-			height $cellSize3 px
-			margin-top -($cellSize3 + ($cellPadding*2)) px
-
-		.dot.spot-0
-			margin-top $cellSize3*5 px
-		.dot.spot-1
-			margin-top $cellSize3*4 px
-		.dot.spot-2
-			margin-top $cellSize3*3 px
-		.dot.spot-3
-			margin-top $cellSize3*2 px
-		.dot.spot-4
-			margin-top $cellSize3 px
-		// .dot.spot-5
-		// 	margin-top 0
+	#gameGrid .board img
+		width 100%
