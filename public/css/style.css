@@ -14,12 +14,12 @@ h2{color:#332f60}
 #gameGrid .column{position:relative;float:left;width:75px;height:450px;text-align:center}
 #gameGrid .slot{float:left;width:65px;height:65px;background-color:#fff;-webkit-border-radius:50px;-moz-border-radius:50px;-ms-border-radius:50px;-o-border-radius:50px;border-radius:50px;-webkit-box-shadow:inset 1px 2px 5px #000;-moz-box-shadow:inset 1px 2px 5px #000;-ms-box-shadow:inset 1px 2px 5px #000;-o-box-shadow:inset 1px 2px 5px #000;box-shadow:inset 1px 2px 5px #000;margin:5px}
 #gameGrid .dot{width:75px;height:75px;position:absolute;top:0;left:0;margin-top:-89px;-webkit-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-moz-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-ms-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-o-transition:margin .35s cubic-bezier(.95,.05,.795,.035);transition:margin .35s cubic-bezier(.95,.05,.795,.035)}
-#gameGrid .dot.spot-0{margin-top:375px}
-#gameGrid .dot.spot-1{margin-top:300px}
-#gameGrid .dot.spot-2{margin-top:225px}
-#gameGrid .dot.spot-3{margin-top:150px}
-#gameGrid .dot.spot-4{margin-top:75px}
-#gameGrid .dot.spot-5{margin-top:0}
+#gameGrid .dot.slot-0{margin-top:375px}
+#gameGrid .dot.slot-1{margin-top:300px}
+#gameGrid .dot.slot-2{margin-top:225px}
+#gameGrid .dot.slot-3{margin-top:150px}
+#gameGrid .dot.slot-4{margin-top:75px}
+#gameGrid .dot.slot-5{margin-top:0}
 .gamesList{width:50%;}
 .gamesList ul{list-style:none;margin:0;padding:0;background-color:#fff;-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;color:#333;opacity:.9;filter:alpha(opacity=90);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)"}
 .gamesList li{padding:.5em;border-top:1px solid #83cde2;-webkit-transition:all .5s ease-in-out;-moz-transition:all .5s ease-in-out;-ms-transition:all .5s ease-in-out;-o-transition:all .5s ease-in-out;transition:all .5s ease-in-out;}
