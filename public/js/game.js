@@ -56,7 +56,7 @@ $(function($) {
 	var gameGrid = $('#gameGrid');
 	gameGrid.on('click', '.toggle', function() {
 		var dot = $(this);
-		dot.removeClass('toggle').addClass('spot-0');
+		dot.removeClass('toggle').addClass('slot-0');
 
 	});
 
