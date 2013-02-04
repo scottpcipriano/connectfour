@@ -7,13 +7,13 @@ h2{color:#332f60}
 #gamePanel{width:65%;margin-right:5%}
 #gameGrid{position:relative;width:525px;height:450px;margin-bottom:1em;-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;}
 #gameGrid .controls{width:525px;overflow:hidden;margin-bottom:10px;}
-#gameGrid .controls a{display:block;float:left;}
-#gameGrid .controls a img{width:75px;height:75px}
-#gameGrid .board{position:absolute;top:82px;left:-6px;z-index:30;opacity:.9;filter:alpha(opacity=90);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";}
+#gameGrid .controls a{display:block;float:left;width:75px;height:75px;}
+#gameGrid .controls a img{width:100%;height:100%}
+#gameGrid .board{position:absolute;top:79px;left:-6px;z-index:30;opacity:.9;filter:alpha(opacity=90);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";}
 #gameGrid .board img{-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;border:3px solid #f7d805}
 #gameGrid .column{position:relative;float:left;width:75px;height:450px;text-align:center}
 #gameGrid .slot{float:left;width:65px;height:65px;background-color:#fff;-webkit-border-radius:50px;-moz-border-radius:50px;-ms-border-radius:50px;-o-border-radius:50px;border-radius:50px;-webkit-box-shadow:inset 1px 2px 5px #000;-moz-box-shadow:inset 1px 2px 5px #000;-ms-box-shadow:inset 1px 2px 5px #000;-o-box-shadow:inset 1px 2px 5px #000;box-shadow:inset 1px 2px 5px #000;margin:5px}
-#gameGrid .dot{width:75px;height:75px;position:absolute;top:0;left:0;margin-top:-88px;-webkit-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-moz-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-ms-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-o-transition:margin .35s cubic-bezier(.95,.05,.795,.035);transition:margin .35s cubic-bezier(.95,.05,.795,.035)}
+#gameGrid .dot{width:75px;height:75px;position:absolute;top:0;left:0;margin-top:-85px;-webkit-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-moz-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-ms-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-o-transition:margin .35s cubic-bezier(.95,.05,.795,.035);transition:margin .35s cubic-bezier(.95,.05,.795,.035)}
 #gameGrid .dot.slot-0{margin-top:374px}
 #gameGrid .dot.slot-1{margin-top:299px}
 #gameGrid .dot.slot-2{margin-top:224px}
@@ -71,13 +71,13 @@ header nav li{margin:0 0 1px;float:none}
 #gamePanel{margin-right:10%}
 #gameGrid{position:relative;width:350px;height:300px;margin-bottom:1em;-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;}
 #gameGrid .controls{width:350px;overflow:hidden;margin-bottom:10px;}
-#gameGrid .controls a{display:block;float:left;}
-#gameGrid .controls a img{width:50px;height:50px}
-#gameGrid .board{position:absolute;top:57px;left:-6px;z-index:30;opacity:.9;filter:alpha(opacity=90);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";}
+#gameGrid .controls a{display:block;float:left;width:50px;height:50px;}
+#gameGrid .controls a img{width:100%;height:100%}
+#gameGrid .board{position:absolute;top:54px;left:-6px;z-index:30;opacity:.9;filter:alpha(opacity=90);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";}
 #gameGrid .board img{-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;border:3px solid #f7d805}
 #gameGrid .column{position:relative;float:left;width:50px;height:300px;text-align:center}
 #gameGrid .slot{float:left;width:40px;height:40px;background-color:#fff;-webkit-border-radius:50px;-moz-border-radius:50px;-ms-border-radius:50px;-o-border-radius:50px;border-radius:50px;-webkit-box-shadow:inset 1px 2px 5px #000;-moz-box-shadow:inset 1px 2px 5px #000;-ms-box-shadow:inset 1px 2px 5px #000;-o-box-shadow:inset 1px 2px 5px #000;box-shadow:inset 1px 2px 5px #000;margin:5px}
-#gameGrid .dot{width:50px;height:50px;position:absolute;top:0;left:0;margin-top:-63px;-webkit-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-moz-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-ms-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-o-transition:margin .35s cubic-bezier(.95,.05,.795,.035);transition:margin .35s cubic-bezier(.95,.05,.795,.035)}
+#gameGrid .dot{width:50px;height:50px;position:absolute;top:0;left:0;margin-top:-60px;-webkit-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-moz-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-ms-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-o-transition:margin .35s cubic-bezier(.95,.05,.795,.035);transition:margin .35s cubic-bezier(.95,.05,.795,.035)}
 #gameGrid .dot.slot-0{margin-top:249px}
 #gameGrid .dot.slot-1{margin-top:199px}
 #gameGrid .dot.slot-2{margin-top:149px}
@@ -99,13 +99,13 @@ header nav ul{padding:0}
 #chatPanel{margin:2% 0 0 -5%;width:100%}
 #gameGrid{position:relative;width:266px;height:228px;margin-bottom:1em;-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;}
 #gameGrid .controls{width:266px;overflow:hidden;margin-bottom:10px;}
-#gameGrid .controls a{display:block;float:left;}
-#gameGrid .controls a img{width:38px;height:38px}
-#gameGrid .board{position:absolute;top:45px;left:-6px;z-index:30;opacity:.9;filter:alpha(opacity=90);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";}
+#gameGrid .controls a{display:block;float:left;width:38px;height:38px;}
+#gameGrid .controls a img{width:100%;height:100%}
+#gameGrid .board{position:absolute;top:42px;left:-6px;z-index:30;opacity:.9;filter:alpha(opacity=90);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";}
 #gameGrid .board img{-webkit-border-radius:10px;-moz-border-radius:10px;-ms-border-radius:10px;-o-border-radius:10px;border-radius:10px;border:3px solid #f7d805}
 #gameGrid .column{position:relative;float:left;width:38px;height:228px;text-align:center}
 #gameGrid .slot{float:left;width:28px;height:28px;background-color:#fff;-webkit-border-radius:50px;-moz-border-radius:50px;-ms-border-radius:50px;-o-border-radius:50px;border-radius:50px;-webkit-box-shadow:inset 1px 2px 5px #000;-moz-box-shadow:inset 1px 2px 5px #000;-ms-box-shadow:inset 1px 2px 5px #000;-o-box-shadow:inset 1px 2px 5px #000;box-shadow:inset 1px 2px 5px #000;margin:5px}
-#gameGrid .dot{width:38px;height:38px;position:absolute;top:0;left:0;margin-top:-51px;-webkit-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-moz-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-ms-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-o-transition:margin .35s cubic-bezier(.95,.05,.795,.035);transition:margin .35s cubic-bezier(.95,.05,.795,.035)}
+#gameGrid .dot{width:38px;height:38px;position:absolute;top:0;left:0;margin-top:-48px;-webkit-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-moz-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-ms-transition:margin .35s cubic-bezier(.95,.05,.795,.035);-o-transition:margin .35s cubic-bezier(.95,.05,.795,.035);transition:margin .35s cubic-bezier(.95,.05,.795,.035)}
 #gameGrid .dot.slot-0{margin-top:189px}
 #gameGrid .dot.slot-1{margin-top:151px}
 #gameGrid .dot.slot-2{margin-top:113px}

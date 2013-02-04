@@ -64,13 +64,15 @@ $gameGridCreator($cellSize)
 			a
 				display block
 				float left
+				width $cellSize px
+				height $cellSize px
 				img
-					width $cellSize px
-					height $cellSize px
+					width 100%
+					height 100%
 
 		.board
 			position absolute
-			top ($cellSize + ($cellPadding*2) - 3)px
+			top ($cellSize + ($cellPadding*2) - 6)px
 			left -6px
 			z-index 30
 			//width 100%
@@ -104,7 +106,7 @@ $gameGridCreator($cellSize)
 			position absolute
 			top 0
 			left 0
-			margin-top -($cellSize + ($cellPadding*2) + 3) px
+			margin-top -($cellSize + ($cellPadding*2)) px
 			// http://matthewlein.com/ceaser/ <-- easing tool
 			transition(margin, .35s, cubic-bezier(0.950,  0.050, 0.795, 0.035))
 			//transition(margin, 1s, ease-in-out)

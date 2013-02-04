@@ -62,15 +62,36 @@ $(function($) {
 
 	// this is an outline of some steps / logic:
 	// on click of ".controls > a", create a game dot
-	// get class (or href) of the control user clicked "$(this)"
-	// put game dot at top of column with same class as the control user clicked (e.g., col-0)
-	// hide the control user clicked (so that it appears as if that game dot dropped into slot)
-	// get column's class "count-#"
-	// use the number after the dash to determine what slot the dot should drop into (e.g., if count-0, then no dots in column yet; therefore, dot should drop into slot-0)
-	// apply 'slot-#' class to game dot
-	// increment the count on the column class by one (e.g., class changed from count-0 to count-1) 
-	// update array (use 3-dimensional array to check for four in a row????)
+	gameGrid.on('click', '.controls a', function() {
+		var dropButton = $(this);
+		var dropTarget = dropButton.attr('class');
+		console.log(dropTarget);
+		// get class (or href) of the control user clicked "$(this)"
 
-	// if column's count class is count-5, then don't display control for that column.
+		// put game dot at top of column with same class as the control user clicked (e.g., col-0)
+		var gameDot = dropButton.children('img').clone();
+
+		gameDot.prependTo('.column.' + dropTarget).addClass('dot');
+		// hide the control user clicked (so that it appears as if that game dot dropped into slot)
+		dropButton.children('img').hide();
+		// get column's class "count-#"
+		if ($('.column.' + dropTarget).hasClass('count-0')) { 
+			gameDot.addClass('slot-0');
+			console.log(gameDot.attr('class'));
+		}
+		// use the number after the dash to determine what slot the dot should drop into (e.g., if count-0, then no dots in column yet; therefore, dot should drop into slot-0)
+		// apply 'slot-#' class to game dot
+		// increment the count on the column class by one (e.g., class changed from count-0 to count-1) 
+		// update array (use 3-dimensional array to check for four in a row????)
+
+		// if column's count class is count-5, then don't display control for that column.
+	
+	});
+
+	
+	
+	
+	
+	
 
 });
