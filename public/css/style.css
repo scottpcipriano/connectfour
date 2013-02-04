@@ -28,8 +28,6 @@ h2{color:#332f60}
 .gamesList li .actions a{padding:0 .5em}
 .gamesList li:first-child{border-top:none}
 .gamesList li:hover{background-color:#83cde2}
-.button{display:inline-block;line-height:30px;padding:10px 20px;background-color:#83cde2;text-decoration:none;font-weight:bold;-webkit-transition:all .2s ease;-moz-transition:all .2s ease;-ms-transition:all .2s ease;-o-transition:all .2s ease;transition:all .2s ease}
-.button:hover{background-color:#76b9cb}
 html{background-color:#4e95c7}
 body{margin:0;color:#fff;background-color:#4e95c7;font:15px/1.2em 'Source Sans Pro',sans-serif}
 a,a:hover,a:visited,a:focus{color:#fff}
@@ -59,6 +57,8 @@ header li a:hover{background-color:#76b9cb;padding-top:5px}
 #gamePanel{float:right;margin:10px 250px 0 0;width:auto}
 .eggz{height:100%;}
 .eggz body{height:100%;background:url("../images/hipster.png") no-repeat 90% bottom transparent}
+a.button{display:inline-block;line-height:30px;padding:10px 20px;background-color:#f7e305;color:#3e779f;opacity:.9;filter:alpha(opacity=90);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";text-decoration:none;font-weight:bold;-webkit-transition:all .2s ease;-moz-transition:all .2s ease;-ms-transition:all .2s ease;-o-transition:all .2s ease;transition:all .2s ease}
+a.button:hover{background-color:#decc05;color:#332f60}
 @media only screen and (min-width: 901px) and (max-width: 1200px){#gamePanel{margin-right:5%}
 }@media only screen and (min-width: 481px) and (max-width: 900px){header h1{-webkit-background-size:355px auto;-moz-background-size:355px auto;-ms-background-size:355px auto;-o-background-size:355px auto;background-size:355px auto;}
 header h1 a{width:355px;height:64px}
