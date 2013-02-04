@@ -1,5 +1,9 @@
 # Presentation Notes
 
+## Git
+ * Hipchat is a hook
+ * You can remove sensitive info: https://help.github.com/articles/remove-sensitive-data
+
 ## Node
  * All JavaScript.  Everyone can go full stack.
  * Popular editors:
@@ -20,3 +24,4 @@
  * We are using ```Stylus``` instead of CSS.  Allows for variables.
 
 ## Testing
+

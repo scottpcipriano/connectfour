@@ -56,7 +56,7 @@ $(function($) {
 	var gameGrid = $('#gameGrid');
 	gameGrid.on('click', '.toggle', function() {
 		var dot = $(this);
-		dot.removeClass('toggle').addClass('slot-0');
+		dot.removeClass('toggle').addClass('row-0');
 
 	});
 
@@ -72,15 +72,15 @@ $(function($) {
 		var gameDot = dropButton.children('img').clone();
 
 		gameDot.prependTo('.column.' + dropTarget).addClass('dot');
-		// hide the control user clicked (so that it appears as if that game dot dropped into slot)
+		// hide the control user clicked (so that it appears as if that game dot dropped into row)
 		dropButton.children('img').hide();
 		// get column's class "count-#"
 		if ($('.column.' + dropTarget).hasClass('count-0')) { 
-			gameDot.addClass('slot-0');
+			gameDot.addClass('row-0');
 			console.log(gameDot.attr('class'));
 		}
-		// use the number after the dash to determine what slot the dot should drop into (e.g., if count-0, then no dots in column yet; therefore, dot should drop into slot-0)
-		// apply 'slot-#' class to game dot
+		// use the number after the dash to determine what row the dot should drop into (e.g., if count-0, then no dots in column yet; therefore, dot should drop into row-0)
+		// apply 'row-#' class to game dot
 		// increment the count on the column class by one (e.g., class changed from count-0 to count-1) 
 		// update array (use 3-dimensional array to check for four in a row????)
 

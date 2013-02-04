@@ -91,7 +91,7 @@ $gameGridCreator($cellSize)
 			height $cellSize*$numRows px
 			text-align center
 
-		.slot
+		.row
 			float left
 			width $cellSize - $cellPadding*2 px
 			height $cellSize - $cellPadding*2 px
@@ -111,17 +111,17 @@ $gameGridCreator($cellSize)
 			transition(margin, .35s, cubic-bezier(0.950,  0.050, 0.795, 0.035))
 			//transition(margin, 1s, ease-in-out)
 
-		.dot.slot-0
+		.dot.row-0
 			margin-top $cellSize*5 - 1 px
-		.dot.slot-1
+		.dot.row-1
 			margin-top $cellSize*4 - 1 px
-		.dot.slot-2
+		.dot.row-2
 			margin-top $cellSize*3 - 1 px
-		.dot.slot-3
+		.dot.row-3
 			margin-top $cellSize*2 - 1 px
-		.dot.slot-4
+		.dot.row-4
 			margin-top $cellSize - 1 px
-		.dot.slot-5
+		.dot.row-5
 			margin-top -1px
 
 $gameGridCreator($cellSize)
