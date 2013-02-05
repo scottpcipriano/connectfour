@@ -22,7 +22,7 @@ $(function($) {
 		// set up all the game data and structure here
 		// console.log(chats, 'game entered');
 		$(chats).each(function (i, chat) {
-			console.log(i, chat);
+			// console.log(i, chat);
 			if(chat.user === user) {
 				$chatLog.append('<p><span class="playerOne">' + chat.user + ':</span> ' + chat.message + '</p>');
 			} else {

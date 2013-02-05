@@ -11,9 +11,7 @@ var self = module.exports = {
 	attachSocketLayer: function(socketLayer) {
 		// attach scope to this file
 		io = socketLayer;
-	},
 
-	attachSocketHandlers: function() {
 		io.sockets.on('connection', function(socket) {
 
 			console.log('Socket connection...');
