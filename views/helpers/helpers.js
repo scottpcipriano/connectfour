@@ -13,7 +13,7 @@ module.exports = function(handlebars) {
 	  }
 
 	});
-	
+
 	// helper to alert user it is their turn (index.handlebars)
 	handlebars.registerHelper('alertMyTurn', function(user) {
 		if (user.email == this.turn) { 
@@ -85,5 +85,17 @@ module.exports = function(handlebars) {
 		}
 	});
 
+	// helper to alert user it is their turn (index.handlebars)
+	handlebars.registerHelper('drawDot', function(rowIndex, dotColor) {
+		if (dotColor == 1) { 
+	  		return new handlebars.SafeString(
+	  		"<img src='../images/redChip.png' alt='' class='dot row-" + (5 - rowIndex) + "' />");
+	  	} else if (dotColor == 2) { 
+	  		return new handlebars.SafeString(
+	  		"<img src='../images/blueChip.png' alt='' class='dot row-" + (5 - rowIndex) + "' />");
+	  	}
+	});
+
+	
 
 }

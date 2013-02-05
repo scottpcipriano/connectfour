@@ -43,8 +43,23 @@ var self = module.exports = {
 		var game = new Game();
 		game.turn = user.email;
 		game.player_1_email = user.email;
-		game.save(function (err) {
-			callback(game);
+
+		// create a new game board
+		boardUtils.createNewBoard(function(columns) {
+
+			// REMOVE THIS BEFORE COMITTING
+
+			// columns[0][5] = 2
+			// columns[1][5] = 1
+			// columns[1][4] = 1
+			// columns[2][5] = 2
+			// columns[3][5] = 1
+
+
+			game.board = columns;
+			game.save(function (err) {
+				callback(game);
+			});
 		});
 	},
 
@@ -96,13 +111,25 @@ var self = module.exports = {
 
 	dropdot: function (user, gameid, col, callback) {
 		Game.findOne({_id: new ObjectId(gameid)}, function(err, game) {
+
+			// figure out what dot number (think color) to use
+			var dotNumber = 2;
 			if (user.email == game.player_1_email) {
-				boardUtils.dropPiece(game.board, col, user.email, 1)
-				callback(games);
-			} else {
-				boardUtils.dropPiece(game.board, col, user.email, 2)
-				callback(games);
-			}
+				dotNumber = 1;				
+			} 
+
+			// db.games.findOne({_id: new ObjectId('51106449315dad0000000001')}
+
+			// drop the piece
+			boardUtils.dropPiece(game.board, col, dotNumber, function() {
+				game.markModified('board');
+				boardUtils.printBoard(game.board, function() {
+
+					game.save(function (err) {
+						callback(game);
+					});
+				});
+			});
 		});
 	}
 

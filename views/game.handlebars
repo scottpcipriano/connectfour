@@ -10,79 +10,28 @@
 			<a href="/dropdot/{{game._id}}/5" class="col-5"><img src="../images/redChip.png" alt="Drop chip into column one." /></a>
 			<a href="/dropdot/{{game._id}}/6" class="col-6"><img src="../images/redChip.png" alt="Drop chip into column one." /></a>
 		</div>
-		<div class="column col-0 count-0">
-			<!--<img src="../images/redChip.png" alt="" class="dot toggle" />-->
-		
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			
-		</div>
 
-		<div class="column col-1 count-2">
-			<img src="../images/blueChip.png" alt="" class="dot row-1" />
-			<img src="../images/redChip.png" alt="" class="dot row-0" />
+		{{#each game.board}}
 
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-		</div>
-		<div class="column col-2 count-5">
+			<div class="column col-{{@index}}">
+				
+				{{#each this}}
 
+					{{ drawDot @index this }}
+
+				{{/each}}
+				
+				<div class="row"></div>
+				<div class="row"></div>
+				<div class="row"></div>
+				<div class="row"></div>
+				<div class="row"></div>
+				<div class="row"></div>
 		
-			<img src="../images/redChip.png" alt="" class="dot row-5" />
-			<img src="../images/blueChip.png" alt="" class="dot row-4" />
-			<img src="../images/redChip.png" alt="" class="dot row-3" />
-			<img src="../images/blueChip.png" alt="" class="dot row-2" />
-			<img src="../images/redChip.png" alt="" class="dot row-1" />
-			<img src="../images/redChip.png" alt="" class="dot row-0" />
-		
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-		</div>
-		<div class="column col-3 count-0">
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-		</div>
-		<div class="column col-4 count-0">
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-		</div>
-		<div class="column col-5 count-0">
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-		</div>
-		<div class="column col-6 count-0">
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-			<div class="row"></div>
-		</div>
-		
+			</div>
+
+		{{/each}}
+
 		<div class="board">
 			<img src="../images/board.png" alt="" class="" />
 		</div>
