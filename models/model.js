@@ -22,7 +22,17 @@ module.exports = function(app, mongoose) {
 		email: String
 	});
 
+	var ChatSchema = new mongoose.Schema({
+		// orderId: Number,
+		// date: Date,
+		gameId: Number,
+		user: String,
+		message: String
+	});
+
 	var Board = mongoose.model('Board', BoardSchema);
 	var Game = mongoose.model('Game', GameSchema);
 	var User = mongoose.model('User', UserSchema);
-}	
+	var Chat = mongoose.model('Chat', ChatSchema);
+
+};
