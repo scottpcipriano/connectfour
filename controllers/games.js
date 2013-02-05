@@ -1,6 +1,7 @@
 var mongoose = require('mongoose'),
 	Game = mongoose.model('Game'),
 	ObjectId = mongoose.Types.ObjectId,
+	boardUtils = require('../utils/boardUtils'),
 	io;
 
 var self = module.exports = {
@@ -90,6 +91,18 @@ var self = module.exports = {
 	listOtherGames: function (user, callback) {
 		Game.find({$nor:[{player_1_email: user.email },{player_2_email: user.email }]}, function(err, games) {
 			callback(games);
+		});
+	},
+
+	dropdot: function (user, gameid, col, callback) {
+		Game.findOne({_id: new ObjectId(gameid)}, function(err, game) {
+			if (user.email == game.player_1_email) {
+				boardUtils.dropPiece(game.board, col, user.email, 1)
+				callback(games);
+			} else {
+				boardUtils.dropPiece(game.board, col, user.email, 2)
+				callback(games);
+			}
 		});
 	}
 

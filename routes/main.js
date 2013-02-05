@@ -50,6 +50,13 @@ module.exports = function(app,model,passport) {
 		});
 	});
 
+	// view a specific game
+	app.get('/dropdot/:gameid/:col'	, ensureAuthenticated, function(req,res) {
+		games.dropdot(req.user, req.params.gameid, req.params.col, function(game) {
+			res.redirect('/game/' + game._id);
+		});
+	});
+
 	//view all users
 	app.get('/users', ensureAuthenticated, function(req, res) {
 		users.list(function(users) {
