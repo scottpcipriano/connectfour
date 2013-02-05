@@ -25,7 +25,7 @@ module.exports = function(app, mongoose) {
 	var ChatSchema = new mongoose.Schema({
 		// orderId: Number,
 		// date: Date,
-		gameId: Number,
+		gameId: String,
 		user: String,
 		message: String
 	});

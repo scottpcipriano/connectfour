@@ -1,7 +1,9 @@
 var mongoose = require('mongoose'),
 	Game = mongoose.model('Game'),
+	Chat = mongoose.model('Chat'),
 	ObjectId = mongoose.Types.ObjectId,
 	boardUtils = require('../utils/boardUtils'),
+	currentGameId,
 	io;
 
 var self = module.exports = {
@@ -9,35 +11,53 @@ var self = module.exports = {
 	attachSocketLayer: function(socketLayer) {
 		// attach scope to this file
 		io = socketLayer;
+	},
 
+	attachSocketHandlers: function() {
 		io.sockets.on('connection', function(socket) {
 
 			console.log('Socket connection...');
 
 			// ---------------------------------------------> GAME SETUP
 
-			socket.emit('enterGame', {
-				hello: 'world'
+			var query = Chat.find({ gameId: currentGameId }, 'user message').limit(200);
+			query.execFind(function (err, chats) {
+				if(err) {
+					// handle errors
+				} else {
+					socket.emit('enterGame', chats);
+				}
 			});
 
 			// ---------------------------------------------> CHAT
 
-			socket.on('sendChatMessage', function(message) {
-				// console.log(message);
-				socket.broadcast.emit('sendChatMessageToAll', message);
+			socket.on('sendChatMessage', function(data) {
+				// console.log(data);
+				var ChatObject = new Chat({
+					gameId: data.gameId,
+					user: data.user,
+					message: data.message
+				});
+				ChatObject.save(function (err, chatObj) {
+					if(err) {
+						// handle errors
+					} else {
+						console.log('Chat message saved to DB: ', chatObj);
+					}
+				});
+				socket.broadcast.emit('sendChatMessageToAll', data);
 			});
 
 			// ---------------------------------------------> GAME PLAY
 
 			socket.on('playDot', function(data) {
 				console.log(data);
-				self.dropdot(data.user, data.gameid, data.col, function() {
+				self.dropdot(data.user, data.gameid, data.col, function(game) {
 					socket.broadcast.emit('playDotAndRotateUser', { /* to come */ });
 				});
 			});
 
 		});
-
 	},
 
 	// create a game
@@ -85,6 +105,7 @@ var self = module.exports = {
 
 	// retrieve game by _id
 	get: function (id,callback) {
+		currentGameId = id;
 		Game.findOne({_id: new ObjectId(id)}, function(err, game) {
 			callback(game);
 		});

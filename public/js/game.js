@@ -4,7 +4,8 @@ $(function($) {
 		$chatInput = $('#chatInput'),
 		$chatLog = $('#chatLog'),
 		$gameGrid = $('#gameGrid'),
-		currentUser = $('#me').text();
+		gameId = $('#gameId').text(),
+		user = $('#me').text();
 
 	if(__DOMAIN__) {
 		socket = io.connect('http://' + __DOMAIN__);
@@ -17,16 +18,27 @@ $(function($) {
 
 	// ---------------------------------------------> GAME SETUP
 
-	socket.on('enterGame', function(data) {
-		// set up all the game data here
-		// console.log(data, 'game entered');
+	socket.on('enterGame', function(chats) {
+		// set up all the game data and structure here
+		// console.log(chats, 'game entered');
+		$(chats).each(function (i, chat) {
+			console.log(i, chat);
+			if(chat.user === user) {
+				$chatLog.append('<p><span class="playerOne">' + chat.user + ':</span> ' + chat.message + '</p>');
+			} else {
+				$chatLog.append('<p><span class="playerTwo">' + chat.user + ':</span> ' + chat.message + '</p>');
+			}
+		});
+		$chatLog.scrollTop($chatLog[0].scrollHeight);
 	});
 
 	// ---------------------------------------------> CHAT
 
-	socket.on('sendChatMessageToAll', function(message) {
-		$chatLog.append('<p><span class="playerTwo">The other player:</span> ' + message + '</p>');
-		$chatLog.scrollTop($chatLog[0].scrollHeight);
+	socket.on('sendChatMessageToAll', function(data) {
+		if(data.gameId === gameId) {
+			$chatLog.append('<p><span class="playerTwo">' + data.user + ':</span> ' + data.message + '</p>');
+			$chatLog.scrollTop($chatLog[0].scrollHeight);
+		}
 	});
 
 	$chatInput.on('keyup', function(event) {
@@ -36,10 +48,14 @@ $(function($) {
 		if(code == 13) {
 			inputValue = $chatInput.val();
 			$chatInput.val('');
-			$chatLog.append('<p><span class="playerOne">Me:</span> ' + inputValue + '</p>');
+			$chatLog.append('<p><span class="playerOne">' + user + ':</span> ' + inputValue + '</p>');
 			// console.log(socket.broadcast);
 			$chatLog.scrollTop($chatLog[0].scrollHeight);
-			socket.emit('sendChatMessage', inputValue);
+			socket.emit('sendChatMessage', {
+				user: user,
+				gameId: gameId,
+				message: inputValue
+			});
 		}
 	});
 
@@ -95,7 +111,7 @@ $(function($) {
 		// if column's count class is count-5, then don't display control for that column.
 
 		// socket.emit('playDot', {
-		// 	user: currentUser,
+		// 	user: user,
 		// 	gameid: location.href.split('/game/')[1],
 		// 	col: dropTargetClass.replace('col-', '')
 		// });
