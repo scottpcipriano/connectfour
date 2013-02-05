@@ -32,16 +32,39 @@ describe('Account API',function(){
   		boardUtils.dropPiece(columns, 2, 1, function () {
   			boardUtils.dropPiece(columns, 2, 2, function () {
   				boardUtils.dropPiece(columns, 0, 2, function () {
-
-		  			boardUtils.printBoard(columns, function() {
-		  				done(); 
-		  			});
-
+  					assert.equal(1, columns[2][5]);
+  					assert.equal(2, columns[2][4]);
+  					assert.equal(2, columns[0][5]);
+  					done();
 		  		});	
 		  	});	
   		});
   	});
   });
+
+  it('win condition', function(done) {
+
+  	// create board
+  	boardUtils.createNewBoard(function(columns) {
+
+  		// set up a win for player 1
+  		columns[0][5] = 1
+  		columns[1][5] = 1
+  		columns[2][5] = 1
+  		columns[3][5] = 1
+
+  		// TODO FINISH
+		boardUtils.printBoard(columns, function() {
+  			done();
+  		});
+  	});
+  });
+
+
+
+  	// 		boardUtils.printBoard(columns, function() {
+			// 	done(); 
+			// });
 
   it('two dimensional array', function(done) {
       assert.equal(-1, [1,2,3].indexOf(5));
