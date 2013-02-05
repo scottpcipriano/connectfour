@@ -76,7 +76,10 @@ $(function($) {
 		dropButton.children('img').hide();
 		// get column's class "count-#"
 		if ($('.column.' + dropTarget).hasClass('count-0')) { 
-			gameDot.addClass('row-0');
+			//gameDot.addClass('row-0');
+			setTimeout(function() {
+    			gameDot.addClass('row-0');
+			}, 400);
 			console.log(gameDot.attr('class'));
 		}
 		// use the number after the dash to determine what row the dot should drop into (e.g., if count-0, then no dots in column yet; therefore, dot should drop into row-0)
