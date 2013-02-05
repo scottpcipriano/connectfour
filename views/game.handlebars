@@ -4,14 +4,8 @@
 	<span id="gameId" style="display:none;">{{game._id}}</span>
 
 	<div id="gameGrid">
-		<div class="controls playerOne">
-			<a href="/dropdot/{{game._id}}/0" class="col-0"><img src="../images/redChip.png" alt="Drop chip into column one." /></a>
-			<a href="/dropdot/{{game._id}}/1" class="col-1"><img src="../images/redChip.png" alt="Drop chip into column one." /></a>
-			<a href="/dropdot/{{game._id}}/2" class="col-2"><img src="../images/redChip.png" alt="Drop chip into column one." /></a>
-			<a href="/dropdot/{{game._id}}/3" class="col-3"><img src="../images/redChip.png" alt="Drop chip into column one." /></a>
-			<a href="/dropdot/{{game._id}}/4" class="col-4"><img src="../images/redChip.png" alt="Drop chip into column one." /></a>
-			<a href="/dropdot/{{game._id}}/5" class="col-5"><img src="../images/redChip.png" alt="Drop chip into column one." /></a>
-			<a href="/dropdot/{{game._id}}/6" class="col-6"><img src="../images/redChip.png" alt="Drop chip into column one." /></a>
+		<div class="controls">
+			{{gameControls user game}}
 		</div>
 
 		{{#each game.board}}

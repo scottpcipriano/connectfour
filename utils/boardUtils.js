@@ -31,6 +31,52 @@ var self = module.exports = {
 		callback();
 	},
 
+	checkWinner: function(columns) {
+
+		for (var colIndex = 0; colIndex < columns.length; colIndex ++) {	  		
+	  		for (var rowIndex = 0; rowIndex < columns[colIndex].length; rowIndex++) {
+
+	  			// current spot we're looking at
+	  			var currentDotColor = columns[colIndex][rowIndex];
+
+	  			// only check for win if spot isn't empty
+	  			if (currentDotColor != 0) {
+
+	  				// horizontals
+		  			if ((colIndex < 4) && (columns[colIndex + 1][rowIndex] == currentDotColor) && 
+		  				(columns[colIndex + 2][rowIndex] == currentDotColor) && 
+		  				(columns[colIndex + 3][rowIndex] == currentDotColor)) {
+		  					return currentDotColor;
+		  			}
+
+		  			// diagonals (backwards)
+		  			if ((colIndex < 4) && (columns[colIndex + 1][rowIndex - 1] == currentDotColor) && 
+		  				(columns[colIndex + 2][rowIndex - 2] == currentDotColor) && 
+		  				(columns[colIndex + 3][rowIndex - 3] == currentDotColor)) {
+		  					return currentDotColor;
+		  			}
+
+		  			// diagonals (forward)
+		  			if ((colIndex < 4) && (columns[colIndex + 1][rowIndex + 1] == currentDotColor) && 
+		  				(columns[colIndex + 2][rowIndex + 2] == currentDotColor) && 
+		  				(columns[colIndex + 3][rowIndex + 3] == currentDotColor)) {
+		  					return currentDotColor;
+		  			}
+
+		  			// verticle
+		  			if ((colIndex < 4) && (columns[colIndex][rowIndex + 1] == currentDotColor) && 
+		  				(columns[colIndex][rowIndex + 2] == currentDotColor) && 
+		  				(columns[colIndex][rowIndex + 3] == currentDotColor)) {
+		  					return currentDotColor;
+		  			}
+	  			}
+	  		}
+
+	  	}
+
+	  	return null;
+	},
+
 	count: function (callback)  {
 		User.find({}, function(err, users) {
 			var length = users.length;

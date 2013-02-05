@@ -95,6 +95,33 @@ module.exports = function(handlebars) {
 	  		"<img src='../images/blueChip.png' alt='' class='dot row-" + (5 - rowIndex) + "' />");
 	  	}
 	});
+	
+	handlebars.registerHelper('gameControls', function(user, game) {
+		// player1 = redChip, player2 = blueChip
+    var chip = "blueChip";
+    if (user.email == game.player_1_email) {
+      var chip = "redChip";
+    }
+
+		// top of the screen chips
+    var controls = "";
+    for (var i=0;i<7;i++) {
+      controls += "<a href='/dropdot/" + game._id + "/" + i +  "'><img src='../images/" + chip +".png' alt='Drop chip into column .' /></a>"
+     }
+
+		// not two players, no chips shown 
+		if (!game.player_1_email || !game.player_2_email) {
+			return new handlebars.SafeString("<h1>Waiting on challenger!</h1>");
+		}
+		
+		// if it's your turn show the chips and you have two players show chips
+		// else you get nothing!
+		if (user.email == game.turn) {
+    	return new handlebars.SafeString(controls);
+    } else {
+    	return "";
+    } 
+  });  
 
 	
 

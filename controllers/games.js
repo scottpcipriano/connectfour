@@ -146,8 +146,16 @@ var self = module.exports = {
 			// drop the piece
 			boardUtils.dropPiece(game.board, col, dotNumber, function() {
 				game.markModified('board');
+				
+				// making an assumption that dropPiece requires two players
+				// assumption made let's switch turn 
+				if (game.turn == game.player_1_email) {
+					game.turn = game.player_2_email;
+				} else if (game.turn == game.player_2_email){
+					game.turn = game.player_1_email;
+				}
+				
 				boardUtils.printBoard(game.board, function() {
-
 					game.save(function (err) {
 						callback(game);
 					});
