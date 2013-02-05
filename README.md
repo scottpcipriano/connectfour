@@ -15,6 +15,7 @@ You remember old school ConnectFour.  That was pre-hipster.  This is ConnectFour
  * node-inspector - node debugger - https://github.com/dannycoates/node-inspector
  * passport - Auth library - http://passportjs.org/
  * passport-google - Google specific auth using passport - https://github.com/jaredhanson/passport-google
+ * Mocha - javascript test framework running on node for asynchronous testings
 
 ## Installed software
  * Brew on mac (ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)")
@@ -73,6 +74,8 @@ To get the project running:
 ### Start the webapp
 	nodemon app.js
 
+### Testing the webapp
+	mocha
 
 ## Deployment at Heroku
 
