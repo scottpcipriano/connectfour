@@ -1,4 +1,5 @@
-var express = require('express'),
+var colors = require('colors'),
+	express = require('express'),
 	handlebars = require('handlebars'),
 	hbsHelpers = require('./views/helpers/helpers')(handlebars),	
 	exphbs  = require('express3-handlebars'),
@@ -20,6 +21,13 @@ var express = require('express'),
 	http = require('http'),
 	path = require('path'),
 	server;
+
+// Generic error handler...for isolating bugs early on
+// Remove when app matures, or manually exit, which is commented out for now.
+process.on('uncaughtException', function (err) {
+	console.error('Uncaught Exception:'.red.inverse, String(err).red);
+	// process.exit(1);
+});
 
 mongoose.connect(mongoUrl, function(err) {
 	if (!err) {
@@ -70,10 +78,10 @@ passport.use(new GoogleStrategy({
 
 function compile(str,path) {
 	return stylus(str)
-	.set('filename', path)
-	.set('compress', true)
-	.use(nib())
-}
+		.set('filename', path)
+		.set('compress', true)
+		.use(nib());
+};
 
 app.configure(function() {
 	app.engine('handlebars', exphbs({handlebars:handlebars, defaultLayout: 'main'}));
@@ -96,7 +104,7 @@ app.configure(function() {
 });
 
 // routes have to be defined after passport is defined
-var	mainRoutes = require('./routes/main')(app,model,passport);
+var	mainRoutes = require('./routes/main')(app, model, passport);
 
 app.configure('development', function() {
 	app.use(express.errorHandler());
