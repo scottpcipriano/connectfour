@@ -30,8 +30,10 @@ var self = module.exports = {
 			// ---------------------------------------------> GAME PLAY
 
 			socket.on('playDot', function(data) {
-				// console.log(data);
-				socket.broadcast.emit('playDotAndRotateUser', { /* to come */ });
+				console.log(data);
+				self.dropdot(data.user, data.gameid, data.col, function() {
+					socket.broadcast.emit('playDotAndRotateUser', { /* to come */ });
+				});
 			});
 
 		});
@@ -115,8 +117,8 @@ var self = module.exports = {
 			// figure out what dot number (think color) to use
 			var dotNumber = 2;
 			if (user.email == game.player_1_email) {
-				dotNumber = 1;				
-			} 
+				dotNumber = 1;
+			}
 
 			// db.games.findOne({_id: new ObjectId('51106449315dad0000000001')}
 
