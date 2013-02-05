@@ -94,13 +94,13 @@ $(function($) {
 
 		// if column's count class is count-5, then don't display control for that column.
 
-		socket.emit('playDot', {
-			user: currentUser,
-			gameid: location.href.split('/game/')[1],
-			col: dropTargetClass.replace('col-', '')
-		});
+		// socket.emit('playDot', {
+		// 	user: currentUser,
+		// 	gameid: location.href.split('/game/')[1],
+		// 	col: dropTargetClass.replace('col-', '')
+		// });
 
-		return false;
+		// return false;
 
 	});
 
