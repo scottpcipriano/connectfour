@@ -7,6 +7,11 @@
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,300italic,600italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/css/style.css"></link>
     {{#if domain}}<script>var __DOMAIN__ = '{{domain}}';</script>{{/if}}
+    {{#if isGame}}
+    	<script type="text/javascript">
+    		setTimeout(function(){window.location.reload(1);}, 8000);
+    	</script>
+		{{/if}}
 </head>
 <body>
 	<div id="page" data-role="page" > 
