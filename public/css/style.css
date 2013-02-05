@@ -1,6 +1,3 @@
-body{font:14px "Lucida Grande",Helvetica,Arial,sans-serif}
-a{color:#00b7ff}
-h2{color:#332f60}
 #page{width:95%;margin:0 auto}
 #content{width:100%}
 .panel{float:left}
@@ -33,6 +30,7 @@ h2{color:#332f60}
 html{background-color:#4e95c7}
 body{margin:0;color:#fff;background-color:#4e95c7;font:15px/1.2em 'Source Sans Pro',sans-serif}
 a,a:hover,a:visited,a:focus{color:#fff}
+h2{color:#332f60}
 #page{width:auto}
 header{overflow:hidden;}
 header h1{float:left;margin:15px 0 0 15px;background:url("../images/logo.png") no-repeat 0 0 transparent;}

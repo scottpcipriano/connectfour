@@ -1,5 +1,56 @@
+#page
+	width 95%
+	margin 0 auto
+
+#content
+	width 100%
+
+.panel
+	float left
+
+#gamePanel
+	width 65%
+	margin-right 5%
+
+$gameGridCreator($cellSize)
+		
+.gamesList
+	width 50%
+	padding-top 1em
+	margin-bottom 1em
+	ul
+		list-style none
+		margin 0
+		padding 0
+		background-color white
+		border-radius(10px)
+		// -webkit-background-clip padding-box
+		// background-clip padding-box
+		color #333
+		opacity 0.9
+	li
+		padding .5em
+		border-top 1px solid #83cde2
+		transition(all, .5s, ease-in-out)
+		a 
+			color #4e95c7
+			font-weight bold
+		.actions
+			float right
+			a
+				padding 0 .5em
+	li:first-child
+		border-top none
+	li:hover
+		background-color #83cde2
+	li:first-child:hover
+		border-radius(10px 10px 0 0)
+	li:last-child:hover
+		border-radius(0 0 10px 10px)
+
 html
 	background-color #4e95c7
+
 body
 	margin 0
 	color white
@@ -11,6 +62,9 @@ a:hover,
 a:visited,
 a:focus
 	color white
+
+h2
+	color #332f60
 
 #page
 	width auto
