@@ -1,5 +1,6 @@
 var rootDir = process.cwd(),
 	config = require(rootDir + '/config'),
+	boardUtils = require('../utils/boardUtils'),
 	domain = config.get('DOMAIN');
 
 module.exports = function(app,model,passport) {
@@ -53,7 +54,17 @@ module.exports = function(app,model,passport) {
 	// view a specific game
 	app.get('/dropdot/:gameid/:col'	, ensureAuthenticated, function(req,res) {
 		games.dropdot(req.user, req.params.gameid, req.params.col, function(game) {
-			res.redirect('/game/' + game._id);
+
+			var winner = boardUtils.checkWinner(game.board);
+			if (winner == null) {
+				res.redirect('/game/' + game._id);
+			} else {
+				res.render('eastereggz', {
+				domain: domain,
+				className: 'eggz',
+				title: 'Easter Eggz, yay!' });	
+			}
+			
 		});
 	});
 
