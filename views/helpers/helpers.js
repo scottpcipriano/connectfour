@@ -103,13 +103,19 @@ module.exports = function(handlebars) {
       var chip = "redChip";
     }
 
+    // if there is a winner, display notice of winner
+    if (game.winner) {
+      return new handlebars.SafeString("<h1>" + game.winner + " wins!</h1>");
+    }
+
+
 		// top of the screen chips
     var controls = "";
     for (var i=0;i<7;i++) {
       controls += "<a href='/dropdot/" + game._id + "/" + i +  "'><img src='../images/" + chip +".png' alt='Drop chip into column .' /></a>"
      }
 
-		// not two players, no chips shown 
+		// not two players yet, no playable chips shown 
 		if (!game.player_1_email || !game.player_2_email) {
 			return new handlebars.SafeString("<h1>Waiting on challenger!</h1>");
 		}

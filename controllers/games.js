@@ -101,9 +101,18 @@ var self = module.exports = {
 		});
 	},
 
+  // adds a winner to a game
+  winner: function (user,gameid, callback) {
+    Game.findOne({_id: new ObjectId(gameid)}, function(err, game) {
+      game.winner = user.email;
+      game.save(function (err) {
+					callback(game);
+				});
+    });
+  },
+
 	// retrieve game by _id
 	get: function (id,callback) {
-		currentGameId = id;
 		Game.findOne({_id: new ObjectId(id)}, function(err, game) {
 			callback(game);
 		});
@@ -116,16 +125,29 @@ var self = module.exports = {
 		});
 	},
 
-	// return list of games associated with a user
-	listForUser: function (user, callback) {
-		Game.find({$or:[{player_1_email: user.email },{player_2_email: user.email }]}, function(err, games) {
+	// return list of games associated with a user, that haven't been completed
+	listMyGames: function (user, callback) {
+		Game.find({
+              $and :
+              [
+                {$or:[{player_1_email: user.email },{player_2_email: user.email }]},
+                {winner: {$exists: false}}
+              ]
+              }, function(err, games) {
 			callback(games);
 		});
 	},
 
-	// return list of games not associated with the user
+	// return list of games not associated with the user, that haven't been completed
 	listOtherGames: function (user, callback) {
-		Game.find({$nor:[{player_1_email: user.email },{player_2_email: user.email }]}, function(err, games) {
+		Game.find({$nor:[{player_1_email: user.email },{player_2_email: user.email },{winner: {$exists: true}}]}, function(err, games) {
+			callback(games);
+		});
+	},
+ 
+	// return list of games completed
+	listCompletedGames: function (user, callback) {
+		Game.find({winner: {$exists: true}}, function(err, games) {
 			callback(games);
 		});
 	},

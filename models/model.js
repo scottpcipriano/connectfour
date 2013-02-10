@@ -14,7 +14,8 @@ module.exports = function(app, mongoose) {
 		player_1_email: String,
 		player_2_email: String,
 		turn: String,
-		board: [Board]
+		board: [Board],
+    winner: String
 	});
 
 	var UserSchema = new mongoose.Schema({

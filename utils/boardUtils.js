@@ -63,7 +63,7 @@ var self = module.exports = {
 		  					return currentDotColor;
 		  			}
 
-		  			// verticle
+		  			// vertical
 		  			if ((colIndex < 4) && (columns[colIndex][rowIndex + 1] == currentDotColor) && 
 		  				(columns[colIndex][rowIndex + 2] == currentDotColor) && 
 		  				(columns[colIndex][rowIndex + 3] == currentDotColor)) {

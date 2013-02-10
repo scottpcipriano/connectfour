@@ -19,7 +19,17 @@
 
 <ul>
 	{{#each otherGames}}
-  		<li>{{playerOneExists}} vs. {{playerTwoExists}} <span class="actions"><a href="/game/{{_id}}">view</a> {{join}}</li>
+    <li>{{playerOneExists}} vs. {{playerTwoExists}} <span class="actions"><a href="/game/{{_id}}">view</a> {{join}}</span></li>
 	{{/each}}
 </ul>
 </div>	
+
+<div class="gamesList">
+<h2>Completed games ({{completedGames.length}})</h2>
+
+<ul>
+	{{#each completedGames}}
+  <li>{{player_1_email}} vs. {{player_2_email}} - <strong>{{winner}} wins!</strong><span class="actions"><a href="/game/{{_id}}">view</a> </span></li>
+	{{/each}}
+</ul>
+</div>

@@ -89,8 +89,8 @@ app.configure(function() {
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'handlebars');
 	app.use(express.favicon());
-	// using short format instead of dev because it doesn't log colors
-	app.use(express.logger('short'));
+	// using short format instead of dev for no colors
+	app.use(express.logger('dev'));
   app.use(express.cookieParser());
 	app.use(express.bodyParser());
 	// must be before passport.session()

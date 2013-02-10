@@ -7,6 +7,7 @@
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,300italic,600italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/css/style.css"></link>
     {{#if domain}}<script>var __DOMAIN__ = '{{domain}}';</script>{{/if}}
+    <!-- this piece of 1997 JS relods the page every 8 seconds so the game is playable -->
     {{#if isGame}}
     	<script type="text/javascript">
     		setTimeout(function(){window.location.reload(1);}, 8000);

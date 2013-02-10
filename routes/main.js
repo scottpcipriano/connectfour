@@ -10,15 +10,18 @@ module.exports = function(app,model,passport) {
 
 	//homepage
 	app.get('/', ensureAuthenticated, function(req, res) {
-		games.listForUser(req.user,function(myGames) {
+		games.listMyGames(req.user,function(myGames) {
 			games.listOtherGames(req.user,function(otherGames) {
-				res.render('index', {
-					domain: domain,
-					user: req.user,
-					className: 'home',
-					title: 'Connect Four',
-					myGames: myGames,
-					otherGames: otherGames
+        games.listCompletedGames(req.user,function(completedGames) {
+				  res.render('index', {
+					  domain: domain,
+					  user: req.user,
+					  className: 'home',
+					  title: 'Connect Four',
+					  myGames: myGames,
+					  otherGames: otherGames,
+            completedGames: completedGames
+          });
 				});
 			});
 		});
@@ -51,20 +54,20 @@ module.exports = function(app,model,passport) {
 		});
 	});
 
-	// view a specific game
+	// place a piece
 	app.get('/dropdot/:gameid/:col'	, ensureAuthenticated, function(req,res) {
 		games.dropdot(req.user, req.params.gameid, req.params.col, function(game) {
 
+      // check win conditions after piece was dropped
 			var winner = boardUtils.checkWinner(game.board);
-			if (winner == null) {
-				res.redirect('/game/' + game._id);
+			if (winner) {
+        console.log ("We have a winner!!!!!!!!");
+        games.winner(req.user, req.params.gameid, function(game) {
+			    res.redirect('/game/' + game._id);
+        });
 			} else {
-				res.render('eastereggz', {
-				domain: domain,
-				className: 'eggz',
-				title: 'Easter Eggz, yay!' });	
-			}
-			
+			  res.redirect('/game/' + game._id);
+      }
 		});
 	});
 
@@ -81,6 +84,7 @@ module.exports = function(app,model,passport) {
 		});
 	});
 
+  // every good app needs an easter egg
 	app.get('/eastereggz', function(req, res) {
 		res.render('eastereggz', {
 			domain: domain,
