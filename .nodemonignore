@@ -1,2 +1,6 @@
-/public
-./.git/*
+# no need to restart your webserver with these
+
+/public/*     # public js
+/.git/*
+README.md
+/views/*
