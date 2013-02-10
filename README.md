@@ -52,7 +52,6 @@ To get the project running:
 ### Install dependencies
 	sudo npm install nodemon -g
 	sudo npm install -g node-inspector
-  sudo npm install -g mocha
 	npm install
 
 ### Start a local mongodb?
@@ -77,7 +76,7 @@ To get the project running:
 	nodemon app.js
 
 ### Testing the webapp
-	mocha
+  make test
 
 ## Deployment at Heroku
 

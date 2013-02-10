@@ -1,6 +1,12 @@
 # no need to restart your webserver with these
 
-/public/*     # public js
-/.git/*
-README.md
+# no need to restart with view later stuff
+/public/*
 /views/*
+
+# git files change all the time
+/.git/*
+
+# list of other files we don't care about
+README.md
+Makefile

@@ -1,10 +1,19 @@
 {
   "name": "connectfour",
   "version": "0.0.1",
-  "private": true,
+  "description": "connectfour for hipsters",
+  "keywords": ["Express", "game", "sockets"],
+  "contributors": [
+    { "name": "Faun Sweeney",   "email": "ruraldeity@mac.com" },
+    { "name": "Mike Leonardo",  "email": "michaelcleonardo@gmail.com" },
+    { "name": "Arx Poetica",    "email": "langbert@gmail.com" },
+    { "name": "Scott Cipriano", "email": "spcip82@gmail.com" }
+  ],
   "scripts": {
-    "start": "node app"
+    "start": "node app",
+    "test": "make test"
   },
+  "main": "app",
   "dependencies": {
     "express": "3.0.4",
     "express3-handlebars": "*",
@@ -18,8 +27,15 @@
     "passport-google": "*",
     "colors": "~0.6.0-1"
   },
+  "devDependencies": {
+    "mocha": "*"
+  },
   "engines": {
     "node": "0.8.x",
     "npm": "1.1.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spcip82/connectfour.git"
   }
 }
