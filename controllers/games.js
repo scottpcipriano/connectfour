@@ -66,16 +66,6 @@ var self = module.exports = {
 
 		// create a new game board
 		boardUtils.createNewBoard(function(columns) {
-
-			// REMOVE THIS BEFORE COMITTING
-
-			// columns[0][5] = 2
-			// columns[1][5] = 1
-			// columns[1][4] = 1
-			// columns[2][5] = 2
-			// columns[3][5] = 1
-
-
 			game.board = columns;
 			game.save(function (err) {
 				callback(game);
@@ -160,8 +150,6 @@ var self = module.exports = {
 			if (user.email == game.player_1_email) {
 				dotNumber = 1;
 			}
-
-			// db.games.findOne({_id: new ObjectId('51106449315dad0000000001')}
 
 			// drop the piece
 			boardUtils.dropPiece(game.board, col, dotNumber, function() {

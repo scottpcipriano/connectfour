@@ -42,7 +42,7 @@ module.exports = function(app,model,passport) {
 	});
 
 	// view a specific game
-	app.get('/game/:id'	, ensureAuthenticated, function(req,res) {
+	app.get('/game/:id'	, ensureAuthenticated, function(req,res){
 		games.get(req.params.id, function(game) {
 			res.render('game', {
 				domain: domain,
@@ -96,14 +96,14 @@ module.exports = function(app,model,passport) {
 	app.get('/auth/google',
 	  passport.authenticate('google'),
 	  function(req, res){
-	    // The request will be redirected to Google for authentication, so
+	    // the request will be redirected to Google for authentication, so
 	    // this function will not be called.
 	  });
 	
 	app.get('/auth/google/return', 
 	  passport.authenticate('google', { failureRedirect: '/login' }),
 	  function(req, res) {
-	    // Successful authentication, redirect home.
+	    // successful authentication, redirect home.
 	    res.redirect('/');
 	  });
   

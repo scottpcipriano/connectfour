@@ -95,7 +95,8 @@ module.exports = function(handlebars) {
 	  		"<img src='../images/blueChip.png' alt='' class='dot row-" + (5 - rowIndex) + "' />");
 	  	}
 	});
-	
+
+  // display game pieces (game.handlebars)
 	handlebars.registerHelper('gameControls', function(user, game) {
 		// player1 = redChip, player2 = blueChip
     var chip = "blueChip";
@@ -107,7 +108,6 @@ module.exports = function(handlebars) {
     if (game.winner) {
       return new handlebars.SafeString("<h1>" + game.winner + " wins!</h1>");
     }
-
 
 		// top of the screen chips
     var controls = "";
@@ -127,8 +127,6 @@ module.exports = function(handlebars) {
     } else {
     	return "";
     } 
-  });  
-
-	
+  });
 
 }
