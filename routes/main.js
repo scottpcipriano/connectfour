@@ -5,6 +5,7 @@ var rootDir = process.cwd(),
 
 module.exports = function(app,model,passport) {
 
+  var chats = require('../controllers/chats');
 	var users = require('../controllers/users');
 	var games = require('../controllers/games');
 
@@ -44,12 +45,15 @@ module.exports = function(app,model,passport) {
 	// view a specific game
 	app.get('/game/:id'	, ensureAuthenticated, function(req,res){
 		games.get(req.params.id, function(game) {
-			res.render('game', {
-				domain: domain,
-				user: req.user,
-				className: 'game',
-				isGame: true,
-				game: game
+      chats.list(req.params.id, function(chats) {
+			  res.render('game', {
+				  domain: domain,
+				  user: req.user,
+				  className: 'game',
+				  isGame: true,
+				  game: game,
+          chats: chats
+        });
 			});
 		});
 	});

@@ -49,6 +49,7 @@ header li a:hover{background-color:#76b9cb;padding-top:5px}
 .gameStats p{margin:0}
 .playerOne{font-weight:600;color:#e1d100}
 .playerTwo{font-weight:600;color:#4dff62}
+.olderMessage{font-weight:600;color:#ebebeb}
 #chatPanel{float:left;width:30%}
 #chatPanel *{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box}
 #chatInput{font-size:15px;margin:0 0 8px;padding:4px;border:5px solid #fff;width:100%;color:#fff;background-color:#3e779f;-webkit-box-shadow:3px 3px 8px #426771;-moz-box-shadow:3px 3px 8px #426771;-ms-box-shadow:3px 3px 8px #426771;-o-box-shadow:3px 3px 8px #426771;box-shadow:3px 3px 8px #426771}

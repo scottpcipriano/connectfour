@@ -16,24 +16,7 @@ $(function($) {
 
 	window.socket = socket;
 
-	// ---------------------------------------------> GAME SETUP
-
-	socket.on('enterGame', function(chats) {
-		// set up all the game data and structure here
-		// console.log(chats, 'game entered');
-		$(chats).each(function (i, chat) {
-			// console.log(i, chat);
-			if(chat.user === user) {
-				$chatLog.append('<p><span class="playerOne">' + chat.user + ':</span> ' + chat.message + '</p>');
-			} else {
-				$chatLog.append('<p><span class="playerTwo">' + chat.user + ':</span> ' + chat.message + '</p>');
-			}
-		});
-		$chatLog.scrollTop($chatLog[0].scrollHeight);
-	});
-
-	// ---------------------------------------------> CHAT
-
+	// chat message
 	socket.on('sendChatMessageToAll', function(data) {
 		if(data.gameId === gameId) {
 			$chatLog.append('<p><span class="playerTwo">' + data.user + ':</span> ' + data.message + '</p>');

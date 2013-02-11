@@ -39,5 +39,9 @@
 <div class="panel" id="chatPanel">
 	<label for="chatInput">Talk some smack:</label>
 	<input id="chatInput" type="text">
-	<div id="chatLog"></div>
+	<div id="chatLog">
+    {{#each chats}}
+      <p><span class="olderMessage">{{user}}:</span> {{message}}</p> 
+    {{/each}}
+  </div>
 </div>
