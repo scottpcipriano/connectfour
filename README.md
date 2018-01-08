@@ -16,7 +16,7 @@ You remember old school ConnectFour.  That was pre-hipster.  This is ConnectFour
  * passport - Auth library - http://passportjs.org/
  * passport-google - Google specific auth using passport - https://github.com/jaredhanson/passport-google
  * Mocha - javascript test framework running on node for asynchronous
-testings - http://visionmedia.github.com/mocha/
+testings - http://mochajs.org/
 
 ## Installed software
  * Brew on mac (ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)")
